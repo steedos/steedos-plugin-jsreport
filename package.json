@@ -6,14 +6,18 @@
   "author": "yinlainghui <yinlianghui@hotoa.com>",
   "license": "MIT",
   "dependencies": {
+    "@steedos/objectql": "^0.1.1",
     "jsreport-core": "^2.5.0",
     "jsreport-handlebars": "^2.0.2",
     "jsreport-text": "^2.0.0"
   },
   "scripts": {
-    "start": "node start.js"
+    "start": "npm run compile && node start.js",
+    "compile": "babel -d lib src/",
+    "prepublish": "npm run compile"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-json-strings": "^7.2.0",
@@ -24,5 +28,9 @@
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.5.4",
     "css-modules-require-hook": "^4.2.3"
+  },
+  "resolutions": {
+    "graphql": "^14.1.1",
+    "@steedos/objectql": "^0.1.1"
   }
 }
