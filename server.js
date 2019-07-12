@@ -1,4 +1,5 @@
-const jsreport = require('jsreport-core')()
+import jsreportCore from 'jsreport-core';
+const jsreport = jsreportCore();
 
 jsreport.init().then(() => {
     return jsreport.render({
