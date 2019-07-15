@@ -55,7 +55,36 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
       data: data
     }
   });
-  res.send(resp.content.toString());
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.send(resp.content);
+  res.end();
+});
+
+// 报表查看详细界面
+routes.get(`${rootUrl}/web/pdf/:report_id`, async (req, res) => {
+  let report_id = req.params.report_id;
+  let report = getReport(report_id);
+  if (!report) {
+    res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
+  let htmlContent = report.getHtmlContent();
+  let data = await report.getData();
+  let jsreport = await getJsreport()
+  let resp = await jsreport.render({
+    template: {
+      content: htmlContent,
+      engine: 'handlebars',
+      recipe: 'chrome-pdf'
+    },
+    data: {
+      report: report.toConfig(),
+      data: data
+    }
+  });
+  res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
+  res.send(resp.content);
   res.end();
 });
 
