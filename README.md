@@ -21,3 +21,15 @@ $ yarn start
 
 访问地址: `http://localhost:3600/plugins/jsreport/web/`
 
+### 插件使用
+```
+...
+let app = express();
+...
+initPlugin(app);
+...
+```
+
+参考：https://github.com/steedos/steedos-plugin-jsreport/blob/master/server.js
+
+Example：https://github.com/steedos/steedos-contracts-app/blob/master/server.js

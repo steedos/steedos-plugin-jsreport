@@ -1,24 +1,3 @@
-// import jsreportCore from 'jsreport-core';
-// const jsreport = jsreportCore();
-
-// jsreport.init().then(() => {
-//     return jsreport.render({
-//         template: {
-//             content: '<h1>Hello {{foo}}</h1>',
-//             engine: 'handlebars',
-//             recipe: 'text'
-//         },
-//         data: {
-//             foo: "world"
-//         }
-//     }).then((resp) => {
-//         // prints pdf with headline Hello world
-//         console.log(resp.content.toString())
-//     });
-// }).catch((e) => {
-//     console.error(e)
-// })
-
 import path from 'path';
 import express from 'express';
 import _ from 'underscore';
@@ -29,7 +8,6 @@ const objectql = require("@steedos/objectql");
 let objectsDir = path.resolve('./objects')
 objectql.getSteedosSchema().addDataSource('default', {
     driver: 'mongo',
-    // url: 'mongodb://192.168.0.77/qhd-beta',
     url: 'mongodb://192.168.0.21/fssh20190329',
     objectFiles: [objectsDir]
 });
