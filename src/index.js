@@ -25,6 +25,11 @@ export function getReport(id) {
     return plugin.getReport(id);
 }
 
+export async function getJsreport() {
+    return await plugin.getJsreport();
+}
+
 export { default as routes } from './router';
 export * from './html';
+export { plugin };
 export default plugin;

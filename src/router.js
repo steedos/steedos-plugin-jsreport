@@ -1,12 +1,8 @@
-import path from 'path';
 import express from 'express';
-import reporter from './reporter';
 import { getHtmlContent, saveReportToHtmlFile } from './html';
 import bodyParser from 'body-parser';
-import { getReportsConfig, getReport } from './index';
-import jsreportCore from 'jsreport-core';
+import { getReportsConfig, getReport, getJsreport } from './index';
 
-const jsreport = jsreportCore();
 const routes = express();
 const rootUrl = "/plugins/jsreport";
 const apiUrl = `${rootUrl}/api`;
@@ -33,7 +29,7 @@ routes.post(`${apiUrl}/html/:report_id`, async (req, res) => {
 routes.get(`${apiUrl}/data/:report_id`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
-  let data = await reporter.getData(report);
+  let data = await report.getData();
   res.send(data);
 });
 
@@ -43,25 +39,53 @@ routes.get(`${apiUrl}/reports`, async (req, res) => {
   res.send(reports);
 });
 
-// 报表查看WEB界面重定向到相关静态html界面
-routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
-  // let report_id = req.params.report_id;
-  // res.redirect(301, `${rootUrl}/assets/viewer.html?reportUrl=${rootUrl}/api/mrt/${report_id}`);
-  await jsreport.init().catch((e) => {
-    console.error(e)
-  });
-
-  let resp = jsreport.render({
+// 报表查看列表界面
+routes.get(`${rootUrl}/web`, async (req, res) => {
+  let reports = getReportsConfig();
+  let jsreport = await getJsreport()
+  let resp = await jsreport.render({
     template: {
-      content: '<h1>Hello {{foo}}</h1>',
+      content: `
+        {{#each reports}}
+          <div className="report-list-item">
+            <a href='{{../rootUrl}}/web/viewer/{{_id}}'>{{name}}</a>
+          </div>
+        {{/each}}
+      `,
       engine: 'handlebars',
       recipe: 'text'
     },
     data: {
-      foo: "world"
+      reports: reports,
+      rootUrl: rootUrl
     }
   });
-  console.log(resp.content.toString());
+  res.send(resp.content.toString());
+  res.end();
+});
+
+// 报表查看详细界面
+routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
+  let report_id = req.params.report_id;
+  let report = getReport(report_id);
+  let htmlContent = report.getHtmlContent();
+  let data = await report.getData();
+  console.log("====================data====JSON.stringify=============");
+  console.log(JSON.stringify(data));
+  let jsreport = await getJsreport()
+  let resp = await jsreport.render({
+    template: {
+      content: htmlContent,
+      engine: 'handlebars',
+      recipe: 'text'
+    },
+    data: {
+      report: report.toConfig(),
+      data: data
+    }
+  });
+  console.log("====================resp.content=================");
+  console.log(resp.content);
   res.send(resp.content.toString());
   res.end();
 });

@@ -2,14 +2,29 @@ import _ from 'underscore';
 import path from 'path';
 import { loadReports } from './utils';
 import { SteedosReport } from './report';
+import jsreportCore from 'jsreport-core';
+
 
 export default class SteedosPlugin { 
     _reports = {}
+    _jsreport = null;
 
     constructor(config) {
         if (config && config.reportFiles){
             this.useReportFiles(config.reportFiles);
         }
+    }
+
+    async getJsreport() {
+        if (this._jsreport){
+            return this._jsreport;
+        }
+        this._jsreport = jsreportCore();
+        await this._jsreport.init().catch((e) => {
+            this._jsreport = null;
+            console.error(e)
+        });
+        return this._jsreport;
     }
 
     get reports() {

@@ -29,4 +29,8 @@ const loadReports = (filePath) => {
     return results;
 }
 
-export { getObject, getObjectConfig, loadReports };
+const getGraphQLSchema = () => {
+    return objectql.getSteedosSchema().getDataSource().getGraphQLSchema();
+}
+
+export { getObject, getObjectConfig, getGraphQLSchema, loadReports };
