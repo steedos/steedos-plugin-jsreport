@@ -2,9 +2,15 @@
   "name": "@steedos/plugin-jsreport",
   "version": "0.0.1",
   "description": "Steedos Jsreport报表插件",
-  "main": "index.js",
-  "author": "yinlainghui <yinlianghui@hotoa.com>",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
   "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@steedos/objectql": "^0.1.1",
     "jsreport-chrome-pdf": "^1.5.0",
@@ -16,7 +22,7 @@
   "scripts": {
     "start": "npm run compile && node start.js",
     "compile": "babel -d lib src/",
-    "prepublish": "npm run compile"
+    "prepare": "npm run compile"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
