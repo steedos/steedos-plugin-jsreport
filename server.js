@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import _ from 'underscore';
-import { initPlugin } from './lib/index';
+import plugin from './lib/index';
 // import objectql from '@steedos/objectql';
 const objectql = require("@steedos/objectql");
 
@@ -23,7 +23,7 @@ const port = 3600;
 process.env.PORT = port;
 process.env.ROOT_URL = "http://localhost:3600";
 
-initPlugin(app);
+plugin.init(app);
 
 app.listen(process.env.PORT || 3000, function (error) {
     if (error) {
