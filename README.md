@@ -33,3 +33,12 @@ initPlugin(app);
 参考：https://github.com/steedos/steedos-plugin-jsreport/blob/master/server.js
 
 Example：https://github.com/steedos/steedos-contracts-app/blob/master/server.js
+
+### 插件配置
+- 插件会自动加载src文件夹中以report.yml后缀且其内容中report_type为'jsreport'的报表文件
+- 识别到的报表会自动生成对应的以report.html后缀的文件
+- 可以在xxx.report.html文件中编写报表界面效果
+
+参考：https://github.com/steedos/steedos-plugin-jsreport/blob/master/src/contracts.report.yml
+
+Example：https://github.com/steedos/steedos-contracts-app/blob/master/src/contracts-jsr.report.yml
