@@ -70,8 +70,6 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   let report = getReport(report_id);
   let htmlContent = report.getHtmlContent();
   let data = await report.getData();
-  console.log("====================data====JSON.stringify=============");
-  console.log(JSON.stringify(data));
   let jsreport = await getJsreport()
   let resp = await jsreport.render({
     template: {
@@ -84,8 +82,6 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
       data: data
     }
   });
-  console.log("====================resp.content=================");
-  console.log(resp.content);
   res.send(resp.content.toString());
   res.end();
 });

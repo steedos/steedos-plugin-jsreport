@@ -1,6 +1,11 @@
 <html>
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            body{
+                background: #eee;
+            }
+        </style>
     </head>
     <body>
         <h1>
@@ -8,11 +13,26 @@
         </h1>
         <div>
             {{#each data}}
-                {{#each this}}
-                    <h2>
-                        {{name}}
-                    </h2>
-                {{/each}}
+                <table class='table striped'>
+                    <tr class="heading ">
+                        <td>
+                            问题名称
+                        </td>
+                        <td>
+                            所属组织.名称
+                        </td>
+                    </tr>
+                    {{#each this}}
+                    <tr class="item">
+                        <td>
+                            {{name}}
+                        </td>
+                        <td>
+                            {{organization.name}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
             {{/each}}
         </div>
     </body>
