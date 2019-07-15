@@ -19,7 +19,9 @@ export default class SteedosPlugin {
         if (this._jsreport){
             return this._jsreport;
         }
-        this._jsreport = jsreportCore();
+        this._jsreport = jsreportCore({
+            loadConfig: true
+        });
         await this._jsreport.init().catch((e) => {
             this._jsreport = null;
             console.error(e)
