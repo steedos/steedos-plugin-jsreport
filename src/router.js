@@ -68,6 +68,11 @@ routes.get(`${rootUrl}/web`, async (req, res) => {
 routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
+  if (!report){
+    res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
   let htmlContent = report.getHtmlContent();
   let data = await report.getData();
   let jsreport = await getJsreport()
