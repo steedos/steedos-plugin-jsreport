@@ -19,7 +19,7 @@ const loadReports = (filePath) => {
     const filePatten = [
         path.join(filePath, "*.report.yml"),
         path.join(filePath, "*.report.json"),
-        path.join(filePath, "*.report.js")
+        path.join(filePath, "*.report.script.js")
     ];
     const matchedPaths = globby.sync(filePatten);
     _.each(matchedPaths, (matchedPath) => {

@@ -73,7 +73,7 @@ export default class SteedosPlugin {
         _.each(reportJsons, (json) => {
             if (json.report_type === "jsreport") {
                 json.html_file = path.join(filePath, `${json._id}.report.html`)
-                json.script_file = path.join(filePath, `${json._id}.report.js`)
+                json.script_file = path.join(filePath, `${json._id}.report.script.js`)
                 this.addReport(json._id, json)
             }
         })

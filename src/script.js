@@ -66,7 +66,7 @@ const getScriptContent = (report) => {
         let script = '';
         try { 
             let extname = path.extname(filePath);
-            if (extname.toLocaleLowerCase() === '.js' && /.report.js$/.test(filePath)){
+            if (extname.toLocaleLowerCase() === '.js' && /.report.script.js$/.test(filePath)){
                 if (fs.existsSync(filePath)){
                     script = fs.readFileSync(filePath, 'utf8');
                 }
