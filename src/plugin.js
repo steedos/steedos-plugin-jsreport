@@ -5,6 +5,7 @@ import { SteedosReport } from './report';
 import appRoot from 'app-root-path';
 import { initHtmls } from './html';
 import { initScripts } from './script';
+import { initHelpers } from './helper';
 import { default as routes } from './router';
 import jsreportCore from 'jsreport-core';
 
@@ -24,6 +25,7 @@ export default class SteedosPlugin {
         this.useReportFiles([reportsDir]);
         initHtmls(this.getReports());
         initScripts(this.getReports());
+        initHelpers(this.getReports());
 
         app.use(routes);
     }
@@ -74,6 +76,7 @@ export default class SteedosPlugin {
             if (json.report_type === "jsreport") {
                 json.html_file = path.join(filePath, `${json._id}.report.html`)
                 json.script_file = path.join(filePath, `${json._id}.report.script.js`)
+                json.helper_file = path.join(filePath, `${json._id}.report.helper.js`)
                 this.addReport(json._id, json)
             }
         })

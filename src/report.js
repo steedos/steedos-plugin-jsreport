@@ -1,5 +1,6 @@
 import { getHtmlContent } from './html';
 import { getScriptContent } from './script';
+import { getHelperContent } from './helper';
 import { getObject, getGraphQLSchema } from './utils';
 import { graphql } from 'graphql';
 export class SteedosReport { 
@@ -12,6 +13,7 @@ export class SteedosReport {
         this.description = config.description
         this.html_file = config.html_file
         this.script_file = config.script_file
+        this.helper_file = config.helper_file
         this.graphql = config.graphql
     }
 
@@ -25,6 +27,7 @@ export class SteedosReport {
         config.description = this.description
         config.html_file = this.html_file
         config.script_file = this.script_file
+        config.helper_file = this.helper_file
         config.graphql = this.graphql
         return config
     }
@@ -35,6 +38,10 @@ export class SteedosReport {
 
     getScriptContent() {
         return getScriptContent(this.toConfig())
+    }
+
+    getHelperContent() {
+        return getHelperContent(this.toConfig())
     }
 
     async getData() {
