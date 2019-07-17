@@ -8,7 +8,7 @@ const objectql = require("@steedos/objectql");
 let objectsDir = path.resolve('./objects')
 objectql.getSteedosSchema().addDataSource('default', {
     driver: 'mongo',
-    url: 'mongodb://192.168.0.21/fssh20190329',
+    url: 'mongodb://192.168.0.77/qhd-beta',
     objectFiles: [objectsDir]
 });
 

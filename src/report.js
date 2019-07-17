@@ -1,4 +1,5 @@
 import { getHtmlContent } from './html';
+import { getScriptContent } from './script';
 import { getObject, getGraphQLSchema } from './utils';
 import { graphql } from 'graphql';
 export class SteedosReport { 
@@ -10,6 +11,7 @@ export class SteedosReport {
         this.filters = config.filters
         this.description = config.description
         this.html_file = config.html_file
+        this.script_file = config.script_file
         this.graphql = config.graphql
     }
 
@@ -22,12 +24,17 @@ export class SteedosReport {
         config.filters = this.filters
         config.description = this.description
         config.html_file = this.html_file
+        config.script_file = this.script_file
         config.graphql = this.graphql
         return config
     }
 
     getHtmlContent() {
         return getHtmlContent(this.toConfig())
+    }
+
+    getScriptContent() {
+        return getScriptContent(this.toConfig())
     }
 
     async getData() {

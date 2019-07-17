@@ -42,11 +42,15 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
     return;
   }
   let htmlContent = report.getHtmlContent();
+  let scriptContent = report.getScriptContent();
   let data = await report.getData();
   let jsreport = await getJsreport()
   let resp = await jsreport.render({
     template: {
       content: htmlContent,
+      scripts: [{
+        content: scriptContent
+      }],
       engine: 'handlebars',
       recipe: 'text'
     },
