@@ -9,20 +9,19 @@
     </head>
     <body>
         <h1>
-            {{report.name}}
+            {{report_name}}
         </h1>
         <div>
-            {{#each data}}
-                <table class='table striped'>
-                    <tr class="heading ">
-                        <td>
-                            问题名称
-                        </td>
-                        <td>
-                            所属组织.名称
-                        </td>
-                    </tr>
-                    {{#each this}}
+            <table class='table striped'>
+                <tr class="heading ">
+                    <td>
+                        问题名称
+                    </td>
+                    <td>
+                        所属组织.名称
+                    </td>
+                </tr>
+                {{#each project_issues}}
                     <tr class="item">
                         <td>
                             {{name}}
@@ -31,9 +30,8 @@
                             {{organization.name}}
                         </td>
                     </tr>
-                    {{/each}}
-                </table>
-            {{/each}}
+                {{/each}}
+            </table>
         </div>
     </body>
 </html>

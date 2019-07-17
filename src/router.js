@@ -44,7 +44,7 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   let htmlContent = report.getHtmlContent();
   let scriptContent = report.getScriptContent();
   let data = await report.getData();
-  let jsreport = await getJsreport()
+  let jsreport = await getJsreport();
   let resp = await jsreport.render({
     template: {
       content: htmlContent,
@@ -54,10 +54,7 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
       engine: 'handlebars',
       recipe: 'text'
     },
-    data: {
-      report: report.toConfig(),
-      data: data
-    }
+    data: data
   });
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);
@@ -74,18 +71,19 @@ routes.get(`${rootUrl}/web/pdf/:report_id`, async (req, res) => {
     return;
   }
   let htmlContent = report.getHtmlContent();
+  let scriptContent = report.getScriptContent();
   let data = await report.getData();
-  let jsreport = await getJsreport()
+  let jsreport = await getJsreport();
   let resp = await jsreport.render({
     template: {
       content: htmlContent,
+      scripts: [{
+        content: scriptContent
+      }],
       engine: 'handlebars',
       recipe: 'chrome-pdf'
     },
-    data: {
-      report: report.toConfig(),
-      data: data
-    }
+    data: data
   });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);

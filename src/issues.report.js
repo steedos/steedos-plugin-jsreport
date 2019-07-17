@@ -37,3 +37,9 @@ function afterRender(req, res, done) {
   });
 }
  */
+function beforeRender(req, res, done) {
+  // merge in some values for later use in engine
+  // and preserve other values which are already in
+  req.data = Object.assign({}, req.data, { report_name: "问题按类型统计报表" })
+  done()
+}
