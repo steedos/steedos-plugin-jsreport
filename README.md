@@ -40,6 +40,21 @@ Example：https://github.com/steedos/steedos-contracts-app/blob/master/server.js
 - 识别到的报表会自动生成对应的以report.js后缀的文件
 - 可以在xxx.report.html文件中编写报表界面效果，模板语法见：http://handlebarsjs.com
 - 可以在xxx.report.js文件中编写相关脚本，参考：https://jsreport.net/learn/scripts
+- 可以在项目根目录下新建jsreport.config.json文件来配置jsreport相关行为，参考：https://jsreport.net/learn/configuration
+
+> xxx.report.js文件中如果想使用require引用第三方包，比如想require('request')，则需要在jsreport.config.json文件中配置以下参数。
+
+> 也可以直接配置参数允许所有本地包：extensions.scripts.allowedModules="*" or using config allowLocalFilesAccess=true
+
+```
+{
+  "extensions": {
+    "scripts": {
+      "allowedModules": ["request"]
+    }
+  }
+}
+```
 
 参考：https://github.com/steedos/steedos-plugin-jsreport/blob/master/src/contracts.report.yml
 
