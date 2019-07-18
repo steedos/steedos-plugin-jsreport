@@ -2,19 +2,24 @@ import { getHtmlContent } from './html';
 import { getScriptContent } from './script';
 import { getHelperContent } from './helper';
 import { getObject, getGraphQLSchema } from './utils';
+import { renderReport } from './render';
 import { graphql } from 'graphql';
 export class SteedosReport { 
     constructor(config) {
         this._id = config._id
         this.name = config.name
         this.object_name = config.object_name
+        this.data_source = config.data_source
         this.fields = config.fields
         this.filters = config.filters
         this.description = config.description
+        this.graphql = config.graphql
+        this.html = config.html
+        this.script = config.script
+        this.helper = config.helper
         this.html_file = config.html_file
         this.script_file = config.script_file
         this.helper_file = config.helper_file
-        this.graphql = config.graphql
     }
 
     toConfig() {
@@ -22,33 +27,36 @@ export class SteedosReport {
         config._id = this._id
         config.name = this.name
         config.object_name = this.object_name
+        config.data_source = this.data_source
         config.fields = this.fields
         config.filters = this.filters
         config.description = this.description
+        config.graphql = this.graphql
+        config.html = this.html
+        config.script = this.script
+        config.helper = this.helper
         config.html_file = this.html_file
         config.script_file = this.script_file
         config.helper_file = this.helper_file
-        config.graphql = this.graphql
         return config
     }
 
     getHtmlContent() {
-        return getHtmlContent(this.toConfig())
+        return this.html ? this.html : getHtmlContent(this.toConfig())
     }
 
     getScriptContent() {
-        return getScriptContent(this.toConfig())
+        return this.script ? this.script : getScriptContent(this.toConfig())
     }
 
     getHelperContent() {
-        return getHelperContent(this.toConfig())
+        return this.helper ? this.helper : getHelperContent(this.toConfig())
     }
 
     async getData() {
-        let config = this.toConfig();
-        if (config.graphql) {
+        if (this.data_source === "graphql" && this.graphql) {
             let schema = getGraphQLSchema()
-            let dataResult = await graphql(schema, config.graphql);
+            let dataResult = await graphql(schema, this.graphql);
             dataResult = dataResult['data'];
             /**
                 返回结果{
@@ -61,19 +69,27 @@ export class SteedosReport {
                     }
                 }]
                 }
-                **/
+            **/
             return dataResult;
         }
-        else {
-            let object = getObject(config.object_name);
+        else if (this.data_source === "odata") {
+            let object = getObject(this.object_name);
             let dataResult = await object.find({
-                fields: config.fields,
-                filters: config.filters
+                fields: this.fields,
+                filters: this.filters
             });
             let result = {};
-            result[`${config.object_name}`] = dataResult;
+            result[`${this.object_name}`] = dataResult;
             return result;
         }
+        else{
+            console.warn("The property data_source is required to fetch data.");
+            return {};
+        }
+    }
+
+    async render() {
+        return await renderReport(this);
     }
 }
 

@@ -22,6 +22,7 @@ export async function getJsreport() {
     return await plugin.getJsreport();
 }
 
+export { SteedosReport } from './report';
 export { default as routes } from './router';
 export * from './html';
 export { initPlugin as init };
