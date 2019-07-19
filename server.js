@@ -23,7 +23,7 @@ const port = 3600;
 process.env.PORT = port;
 process.env.ROOT_URL = "http://localhost:3600";
 
-plugin.init(app);
+plugin.init({ app: app });
 
 app.listen(process.env.PORT || 3000, function (error) {
     if (error) {

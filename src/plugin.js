@@ -20,7 +20,7 @@ export default class SteedosPlugin {
         }
     }
 
-    init(app) {
+    init({ app }) {
         let reportsDir = appRoot.resolve('/src');
         this.useReportFiles([reportsDir]);
         initHtmls(this.getReports());
