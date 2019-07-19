@@ -53,12 +53,12 @@ routes.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
   let report_id = req.params.report_id;
   let reportObject = getObject("reports");
   let reportConfig = await reportObject.findOne(report_id);
-  let report = new SteedosReport(reportConfig)
-  if (!report) {
+  if (!reportConfig) {
     res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
     res.end();
     return;
   }
+  let report = new SteedosReport(reportConfig)
   let resp = await report.render();
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);

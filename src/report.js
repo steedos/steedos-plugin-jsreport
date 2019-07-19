@@ -6,20 +6,22 @@ import { renderReport } from './render';
 import { graphql } from 'graphql';
 export class SteedosReport { 
     constructor(config) {
-        this._id = config._id
-        this.name = config.name
-        this.object_name = config.object_name
-        this.data_source = config.data_source
-        this.fields = config.fields
-        this.filters = config.filters
-        this.description = config.description
-        this.graphql = config.graphql
-        this.html = config.html
-        this.script = config.script
-        this.helper = config.helper
-        this.html_file = config.html_file
-        this.script_file = config.script_file
-        this.helper_file = config.helper_file
+        if (config) {
+            this._id = config._id
+            this.name = config.name
+            this.object_name = config.object_name
+            this.data_source = config.data_source
+            this.fields = config.fields
+            this.filters = config.filters
+            this.description = config.description
+            this.graphql = config.graphql
+            this.html = config.html
+            this.script = config.script
+            this.helper = config.helper
+            this.html_file = config.html_file
+            this.script_file = config.script_file
+            this.helper_file = config.helper_file
+        }
     }
 
     toConfig() {
