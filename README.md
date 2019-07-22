@@ -1,10 +1,15 @@
 # Steedos Jsreport报表插件
 
-### WEB界面路由
-- /plugins/jsreport/web/ #报表浏览界面，显示报表列表，点击查看报表明细
-- /plugins/jsreport/web/viewer/:id #查看报表详细
-- /plugins/jsreport/web/pdf/:id #查看报表PDF
-
+### WEB界面及接口路由
+#### yml配置的报表相关路由
+- /plugins/jsreport/web/ #报表浏览界面，显示yml配置的报表列表，点击查看报表明细
+- /plugins/jsreport/web/viewer/:id #查看yml配置的报表详细
+- /plugins/jsreport/api/report/:report_id/pdf #导出yml配置的报表PDF
+- /plugins/jsreport/api/report/:report_id/excel #导出yml配置的报表Excel
+#### 数据库中的报表相关路由
+- /plugins/jsreport/web/viewer_db/:id #查看db中的报表详细
+- /plugins/jsreport/api/report_db/:report_id/pdf #导出db中的报表PDF
+- /plugins/jsreport/api/report_db/:report_id/excel #导出db中的报表Excel
 
 # 开发说明
 

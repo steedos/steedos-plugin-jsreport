@@ -65,8 +65,8 @@ routes.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
   res.end();
 });
 
-// 报表PDF详细界面
-routes.get(`${rootUrl}/web/pdf/:report_id`, async (req, res) => {
+// 导出yml配置的报表PDF
+routes.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
   if (!report) {
@@ -97,7 +97,7 @@ routes.get(`${rootUrl}/web/pdf/:report_id`, async (req, res) => {
 });
 
 // 报表excel详细界面
-routes.get(`${rootUrl}/web/excel/:report_id`, async (req, res) => {
+routes.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
   if (!report) {
