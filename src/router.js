@@ -33,7 +33,7 @@ routes.get(`${rootUrl}/web`, async (req, res) => {
   res.end();
 });
 
-// 报表查看详细界面
+// 查看yml配置中的报表详细
 routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -48,7 +48,7 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   res.end();
 });
 
-// 报表查看详细界面
+// 查看db中的报表详细
 routes.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
   let report_id = req.params.report_id;
   let reportObject = getObject("reports");
@@ -65,7 +65,7 @@ routes.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
   res.end();
 });
 
-// 导出yml配置的报表PDF
+// 导出yml配置中的报表为PDF
 routes.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -74,29 +74,30 @@ routes.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
     res.end();
     return;
   }
-  let htmlContent = report.getHtmlContent();
-  let scriptContent = report.getScriptContent();
-  let helperContent = report.getHelperContent();
-  let data = await report.getData();
-  let jsreport = await getJsreport();
-  let resp = await jsreport.render({
-    template: {
-      content: htmlContent,
-      scripts: [{
-        content: scriptContent
-      }],
-      helpers: helperContent,
-      engine: 'handlebars',
-      recipe: 'chrome-pdf'
-    },
-    data: data
-  });
+  let resp = await report.render('chrome-pdf');
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
   res.end();
 });
 
-// 报表excel详细界面
+// 导出db中的报表为PDF
+routes.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
+  let report_id = req.params.report_id;
+  let reportObject = getObject("reports");
+  let reportConfig = await reportObject.findOne(report_id);
+  if (!reportConfig) {
+    res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
+  let report = new SteedosReport(reportConfig)
+  let resp = await report.render('chrome-pdf');
+  res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
+  res.send(resp.content);
+  res.end();
+});
+
+// 导出yml配置中的报表为Excel
 routes.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -105,6 +106,23 @@ routes.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
     res.end();
     return;
   }
+  let resp = await report.render('html-to-xlsx');
+  res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
+  res.send(resp.content);
+  res.end();
+});
+
+// 导出db中的报表为Excel
+routes.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
+  let report_id = req.params.report_id;
+  let reportObject = getObject("reports");
+  let reportConfig = await reportObject.findOne(report_id);
+  if (!reportConfig) {
+    res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
+  let report = new SteedosReport(reportConfig)
   let resp = await report.render('html-to-xlsx');
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
