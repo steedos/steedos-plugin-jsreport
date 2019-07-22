@@ -65,7 +65,7 @@ routes.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
   res.end();
 });
 
-// 报表查看详细界面
+// 报表PDF详细界面
 routes.get(`${rootUrl}/web/pdf/:report_id`, async (req, res) => {
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -92,6 +92,21 @@ routes.get(`${rootUrl}/web/pdf/:report_id`, async (req, res) => {
     data: data
   });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
+  res.send(resp.content);
+  res.end();
+});
+
+// 报表excel详细界面
+routes.get(`${rootUrl}/web/excel/:report_id`, async (req, res) => {
+  let report_id = req.params.report_id;
+  let report = getReport(report_id);
+  if (!report) {
+    res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
+  let resp = await report.render('html-to-xlsx');
+  res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
   res.end();
 });
