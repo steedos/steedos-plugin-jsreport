@@ -74,7 +74,7 @@ routes.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render('chrome-pdf');
+  let resp = await report.render({ recipe: 'chrome-pdf' });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -91,7 +91,7 @@ routes.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render('chrome-pdf');
+  let resp = await report.render({ recipe: 'chrome-pdf' });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -106,7 +106,7 @@ routes.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render('html-to-xlsx');
+  let resp = await report.render({ recipe: 'html-to-xlsx' });
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -123,7 +123,7 @@ routes.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render('html-to-xlsx');
+  let resp = await report.render({ recipe: 'html-to-xlsx' });
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
   res.end();

@@ -90,8 +90,8 @@ export class SteedosReport {
         }
     }
 
-    async render(recipe) {
-        return await renderReport(this, recipe);
+    async render({ recipe = "text", filters = [] } = {}) {
+        return await renderReport(this, { recipe, filters });
     }
 }
 
