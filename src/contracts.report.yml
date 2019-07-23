@@ -4,11 +4,6 @@ name: 合同统计
 report_type: 'jsreport'
 data_source : 'graphql'
 object_name : contracts
-fields:
-  - name
-  - amount
-  - contract_type.name
-  - contract_type.owner.name
 graphql: |
   query {
     contracts(filters:"owner eq '97zjiueTefx5aKnco'") {

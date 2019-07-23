@@ -1,23 +1,11 @@
 import { getJsreport } from './index';
 
-const renderReport = async (report, { recipe = "text", filters = [] } = {}) => {
+const renderReport = async (report, { recipe = "text", user_filters = [] } = {}) => {
     let htmlContent = report.getHtmlContent();
     let scriptContent = report.getScriptContent();
     let helperContent = report.getHelperContent();
-    let data = await report.getData();
+    let data = await report.getData(user_filters);
     let jsreport = await getJsreport();
-    let query = [];
-    if (report.filters){
-        query = report.filters;
-    }
-    if (filters.length){
-        if (query.length){
-            query = [query, "and", filters]
-        }
-        else{
-            query = filters;
-        }
-    }
     let resp = await jsreport.render({
         template: {
             content: htmlContent,
@@ -30,7 +18,7 @@ const renderReport = async (report, { recipe = "text", filters = [] } = {}) => {
         },
         data: {
             data: data,
-            query: query,
+            user_filters: user_filters.length ? user_filters : report.filters,
             report: report
         }
     });

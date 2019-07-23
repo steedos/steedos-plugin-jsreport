@@ -35,6 +35,12 @@ routes.get(`${rootUrl}/web`, async (req, res) => {
 
 // 查看yml配置中的报表详细
 routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
+  console.log("========req.query======", req.query);
+  let user_filters = req.query.user_filters;
+  if (user_filters) {
+    user_filters = JSON.parse(decodeURI(user_filters));
+    console.log(user_filters.length);
+  }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
   if (!report){
@@ -42,7 +48,7 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render();
+  let resp = await report.render({ user_filters });
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);
   res.end();
