@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "npm run compile && node start.js",
-    "compile": "babel -d lib src/",
+    "compile": "babel -d lib src/ && cp -r src/static lib",
     "prepare": "npm run compile"
   },
   "devDependencies": {

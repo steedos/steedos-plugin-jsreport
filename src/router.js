@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { getReportsConfig, getReport, getJsreport, SteedosReport } from './index';
 import { getObject } from './utils';
+import path from 'path';
 
 const routes = express();
 const rootUrl = "/plugins/jsreport";
@@ -152,5 +153,7 @@ routes.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
   res.send(resp.content);
   res.end();
 });
+
+routes.use(rootUrl, express.static(path.resolve(__dirname, "static")));
 
 export default routes;
