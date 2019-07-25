@@ -11,9 +11,20 @@
 </head>
 
 <body>
-    <h1>
-        {{report_name}}-{{now}}
-    </h1>
+    <div>
+        <h1>
+            {{report_name}}-{{now}}-Graphql数据源示例
+        </h1>
+    </div>
+    <div>
+        <a href="/plugins/jsreport/api/report/{{report._id}}/excel" target="_blank">
+            导出为EXCEL
+        </a>
+    </div><div>
+        <a href="/plugins/jsreport/api/report/{{report._id}}/pdf" target="_blank">
+            导出为PDF
+        </a>
+    </div>
     <div>
         <table class='table striped'>
             <tr class="heading ">
