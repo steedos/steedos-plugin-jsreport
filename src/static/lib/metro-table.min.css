@@ -1,0 +1,3347 @@
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block
+}
+
+body {
+    line-height: 1;
+    overflow-x: hidden;
+    background-color: #fff
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+    content: ''
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+base,
+basefont,
+datalist,
+head,
+meta,
+noembed,
+param,
+script,
+style,
+template,
+title {
+    display: none
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box
+}
+
+html {
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: sans-serif
+}
+
+[tabindex="-1"]:focus {
+    outline: 0 !important
+}
+
+[hidden] {
+    display: none !important
+}
+
+template {
+    display: none
+}
+
+::-webkit-file-upload-button {
+    font: inherit;
+    -webkit-appearance: button
+}
+
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+input[type=month] {
+    -webkit-appearance: listbox
+}
+
+[type=submit]::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+button::-moz-focus-inner {
+    padding: 0;
+    border-style: none
+}
+
+[type=submit],
+[type=reset],
+button,
+html [type=button] {
+    -webkit-appearance: button
+}
+
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+img {
+    vertical-align: middle;
+    border-style: none
+}
+
+[hidden] {
+    display: none
+}
+
+div {
+    position: relative
+}
+
+.sorting,
+.sorting_asc,
+.sorting_desc {
+    position: relative;
+    cursor: pointer
+}
+
+.sorting:after,
+.sorting_asc:after,
+.sorting_desc:after {
+    position: absolute;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    left: 100%;
+    margin-left: -1.25rem;
+    top: 50%;
+    margin-top: -.5rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: #1d1d1d
+}
+
+.sorting_asc {
+    background-color: #ebebeb
+}
+
+.sorting_asc:after {
+    content: "\2191"
+}
+
+.sorting_desc {
+    background-color: #ebebeb
+}
+
+.sorting_desc:after {
+    content: "\2193"
+}
+
+.dataTables_length label {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center
+}
+
+.dataTables_length label select {
+    margin: 0 10px;
+    width: 100px
+}
+
+.dataTables_filter label {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center
+}
+
+.dataTables_filter label input {
+    width: 200px;
+    margin-left: 10px
+}
+
+.dataTables_paginate {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none inside;
+    padding: 0;
+    user-select: none;
+    justify-content: center
+}
+
+.dataTables_paginate .next,
+.dataTables_paginate .previous,
+.dataTables_paginate span a {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding: .5rem .75rem;
+    line-height: 1;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #fff;
+    color: #1d1d1d;
+    border: 1px solid #dfdfdf;
+    margin: .25rem
+}
+
+.dataTables_paginate .next:hover,
+.dataTables_paginate .previous:hover,
+.dataTables_paginate span a:hover {
+    background-color: rgba(29, 29, 29, .1)
+}
+
+.dataTables_paginate span {
+    display: flex;
+    flex-flow: row wrap
+}
+
+.dataTables_paginate .current {
+    background-color: #e4e4e4
+}
+
+.dataTables_wrapper {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center
+}
+
+.dataTables_filter,
+.dataTables_length {
+    flex: 1
+}
+
+.dataTable,
+.dataTables_info,
+.dataTables_paginate {
+    width: 100%
+}
+
+.dataTables_info {
+    line-height: 42px;
+    text-align: center
+}
+
+@media all and (min-width:576px) {
+    .dataTables_filter label {
+        justify-content: flex-end
+    }
+
+    .dataTables_length label {
+        justify-content: flex-start
+    }
+}
+
+@media all and (min-width:992px) {
+
+    .dataTables_info,
+    .dataTables_paginate {
+        width: auto
+    }
+
+    .dataTables_info {
+        text-align: left
+    }
+
+    .dataTables_paginate {
+        justify-content: flex-end
+    }
+}
+
+.table-container {
+    display: block;
+    position: relative
+}
+
+.table-container.horizontal-scroll {
+    overflow: hidden;
+    overflow-x: auto
+}
+
+.table-container.horizontal-scroll .table {
+    width: auto;
+    min-width: 100%
+}
+
+.table {
+    display: table
+}
+
+.thead {
+    display: table-header-group
+}
+
+.tfoot {
+    display: table-footer-group
+}
+
+.tbody {
+    display: table-row-group
+}
+
+.tr {
+    display: table-row
+}
+
+.td,
+.th {
+    display: table-cell
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 1rem
+}
+
+.table .td,
+.table .th,
+.table td,
+.table th {
+    padding: .625rem
+}
+
+.table.fixed-layout {
+    table-layout: fixed
+}
+
+.table.fixed-layout .td,
+.table.fixed-layout .th,
+.table.fixed-layout td,
+.table.fixed-layout th {
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.table .tfoot,
+.table .thead,
+.table tfoot,
+.table thead {
+    border-bottom: 4px solid #e4e4e4
+}
+
+.table .tfoot .td,
+.table .tfoot .th,
+.table .tfoot td,
+.table .tfoot th,
+.table .thead .td,
+.table .thead .th,
+.table .thead td,
+.table .thead th,
+.table tfoot .td,
+.table tfoot .th,
+.table tfoot td,
+.table tfoot th,
+.table thead .td,
+.table thead .th,
+.table thead td,
+.table thead th {
+    cursor: default;
+    color: #1d1d1d;
+    border-color: transparent;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1.2
+}
+
+.table .tfoot,
+.table tfoot {
+    border-top: 4px solid #e4e4e4
+}
+
+.table .tbody .td,
+.table .tbody td,
+.table tbody .td,
+.table tbody td {
+    padding: .625rem;
+    vertical-align: middle
+}
+
+.table .sortable-column,
+.table .sorting {
+    position: relative;
+    cursor: pointer
+}
+
+.table .sortable-column:after,
+.table .sorting:after {
+    position: absolute;
+    content: "\21C5";
+    width: 1rem;
+    height: 1rem;
+    left: 100%;
+    margin-left: -1.25rem;
+    top: 50%;
+    margin-top: -.3rem;
+    color: inherit;
+    font-size: .8em;
+    font-weight: 100;
+    line-height: 1;
+    opacity: .7
+}
+
+.table .sortable-column.sort-asc,
+.table .sortable-column.sort-desc,
+.table .sortable-column.sorting_asc,
+.table .sortable-column.sorting_desc,
+.table .sorting.sort-asc,
+.table .sorting.sort-desc,
+.table .sorting.sorting_asc,
+.table .sorting.sorting_desc {
+    background-color: #ebebeb
+}
+
+.table .sortable-column.sort-asc:after,
+.table .sortable-column.sort-desc:after,
+.table .sortable-column.sorting_asc:after,
+.table .sortable-column.sorting_desc:after,
+.table .sorting.sort-asc:after,
+.table .sorting.sort-desc:after,
+.table .sorting.sorting_asc:after,
+.table .sorting.sorting_desc:after {
+    color: #1d1d1d;
+    opacity: 1;
+    font-weight: 700;
+    font-size: 1em;
+    margin-top: -.5rem
+}
+
+.table .sortable-column.sort-asc:after,
+.table .sortable-column.sorting_asc:after,
+.table .sorting.sort-asc:after,
+.table .sorting.sorting_asc:after {
+    content: "\2191"
+}
+
+.table .sortable-column.sort-desc:after,
+.table .sortable-column.sorting_desc:after,
+.table .sorting.sort-desc:after,
+.table .sorting.sorting_desc:after {
+    content: "\2193"
+}
+
+.table.sortable-markers-on-left .sortable-column,
+.table.sortable-markers-on-left .sorting {
+    padding-left: 1.875rem
+}
+
+.table.sortable-markers-on-left .sortable-column:after,
+.table.sortable-markers-on-left .sortable-column:before,
+.table.sortable-markers-on-left .sorting:after,
+.table.sortable-markers-on-left .sorting:before {
+    left: 0;
+    margin-left: .625rem
+}
+
+.table .tr.selected .td,
+.table .tr.selected td,
+.table tr.selected .td,
+.table tr.selected td {
+    background-color: rgba(28, 183, 236, .1)
+}
+
+.table .td.selected,
+.table td.selected {
+    background-color: rgba(28, 183, 236, .3)
+}
+
+.table.striped .tbody .tr:nth-child(odd),
+.table.striped tbody tr:nth-child(odd) {
+    background: #f8f8f8
+}
+
+.table.row-hover .tbody .tr:hover,
+.table.row-hover .tbody tr:hover,
+.table.row-hover tbody .tr:hover,
+.table.row-hover tbody tr:hover {
+    background-color: rgba(28, 183, 236, .1)
+}
+
+.table.cell-hover .tbody .td:hover,
+.table.cell-hover .tbody td:hover,
+.table.cell-hover tbody .td:hover,
+.table.cell-hover tbody td:hover {
+    background-color: rgba(28, 183, 236, .3)
+}
+
+.table.table-border {
+    border: 1px #dfdfdf solid
+}
+
+.table.cell-border .td,
+.table.cell-border .th,
+.table.cell-border td,
+.table.cell-border th {
+    border: 1px #dfdfdf solid
+}
+
+.table.cell-border .thead .tr:first-child .td,
+.table.cell-border .thead .tr:first-child .th,
+.table.cell-border .thead .tr:first-child td,
+.table.cell-border .thead .tr:first-child th,
+.table.cell-border .thead tr:first-child .td,
+.table.cell-border .thead tr:first-child .th,
+.table.cell-border .thead tr:first-child td,
+.table.cell-border .thead tr:first-child th,
+.table.cell-border thead .tr:first-child .td,
+.table.cell-border thead .tr:first-child .th,
+.table.cell-border thead .tr:first-child td,
+.table.cell-border thead .tr:first-child th,
+.table.cell-border thead tr:first-child .td,
+.table.cell-border thead tr:first-child .th,
+.table.cell-border thead tr:first-child td,
+.table.cell-border thead tr:first-child th {
+    border-top: none
+}
+
+.table.cell-border .thead .tr:first-child .td:first-child,
+.table.cell-border .thead .tr:first-child .th:first-child,
+.table.cell-border .thead .tr:first-child td:first-child,
+.table.cell-border .thead .tr:first-child th:first-child,
+.table.cell-border .thead tr:first-child .td:first-child,
+.table.cell-border .thead tr:first-child .th:first-child,
+.table.cell-border .thead tr:first-child td:first-child,
+.table.cell-border .thead tr:first-child th:first-child,
+.table.cell-border thead .tr:first-child .td:first-child,
+.table.cell-border thead .tr:first-child .th:first-child,
+.table.cell-border thead .tr:first-child td:first-child,
+.table.cell-border thead .tr:first-child th:first-child,
+.table.cell-border thead tr:first-child .td:first-child,
+.table.cell-border thead tr:first-child .th:first-child,
+.table.cell-border thead tr:first-child td:first-child,
+.table.cell-border thead tr:first-child th:first-child {
+    border-left: none
+}
+
+.table.cell-border .thead .tr:first-child .td:last-child,
+.table.cell-border .thead .tr:first-child .th:last-child,
+.table.cell-border .thead .tr:first-child td:last-child,
+.table.cell-border .thead .tr:first-child th:last-child,
+.table.cell-border .thead tr:first-child .td:last-child,
+.table.cell-border .thead tr:first-child .th:last-child,
+.table.cell-border .thead tr:first-child td:last-child,
+.table.cell-border .thead tr:first-child th:last-child,
+.table.cell-border thead .tr:first-child .td:last-child,
+.table.cell-border thead .tr:first-child .th:last-child,
+.table.cell-border thead .tr:first-child td:last-child,
+.table.cell-border thead .tr:first-child th:last-child,
+.table.cell-border thead tr:first-child .td:last-child,
+.table.cell-border thead tr:first-child .th:last-child,
+.table.cell-border thead tr:first-child td:last-child,
+.table.cell-border thead tr:first-child th:last-child {
+    border-right: none
+}
+
+.table.cell-border .tbody .tr:first-child .td,
+.table.cell-border .tbody .tr:first-child td,
+.table.cell-border .tbody tr:first-child .td,
+.table.cell-border .tbody tr:first-child td,
+.table.cell-border tbody .tr:first-child .td,
+.table.cell-border tbody .tr:first-child td,
+.table.cell-border tbody tr:first-child .td,
+.table.cell-border tbody tr:first-child td {
+    border-top: none
+}
+
+.table.cell-border .tbody .tr .td:first-child,
+.table.cell-border .tbody .tr td:first-child,
+.table.cell-border .tbody tr .td:first-child,
+.table.cell-border .tbody tr td:first-child,
+.table.cell-border tbody .tr .td:first-child,
+.table.cell-border tbody .tr td:first-child,
+.table.cell-border tbody tr .td:first-child,
+.table.cell-border tbody tr td:first-child {
+    border-left: none
+}
+
+.table.cell-border .tbody .tr .td:last-child,
+.table.cell-border .tbody .tr td:last-child,
+.table.cell-border .tbody tr .td:last-child,
+.table.cell-border .tbody tr td:last-child,
+.table.cell-border tbody .tr .td:last-child,
+.table.cell-border tbody .tr td:last-child,
+.table.cell-border tbody tr .td:last-child,
+.table.cell-border tbody tr td:last-child {
+    border-right: none
+}
+
+.table.cell-border .tbody .tr:last-child .td,
+.table.cell-border .tbody .tr:last-child td,
+.table.cell-border .tbody tr:last-child .td,
+.table.cell-border .tbody tr:last-child td,
+.table.cell-border tbody .tr:last-child .td,
+.table.cell-border tbody .tr:last-child td,
+.table.cell-border tbody tr:last-child .td,
+.table.cell-border tbody tr:last-child td {
+    border-bottom: none
+}
+
+.table.row-border .tr+.tr,
+.table.row-border tr+tr {
+    border-top: 1px #dfdfdf solid
+}
+
+.table.subcompact .td,
+.table.subcompact .th,
+.table.subcompact td,
+.table.subcompact th {
+    padding: 3px 8px;
+    font-size: 80%
+}
+
+.table.compact .td,
+.table.compact .th,
+.table.compact td,
+.table.compact th {
+    padding: 7px 8px;
+    font-size: 80%
+}
+
+.table .check-cell,
+.table .rownum-cell {
+    width: 36px;
+    text-align: center
+}
+
+.table .tbody .td.hidden,
+.table .tbody .th.hidden,
+.table .tbody td.hidden,
+.table .tbody th.hidden,
+.table .thead .td.hidden,
+.table .thead .th.hidden,
+.table .thead td.hidden,
+.table .thead th.hidden,
+.table tbody .td.hidden,
+.table tbody .th.hidden,
+.table tbody td.hidden,
+.table tbody th.hidden,
+.table thead .td.hidden,
+.table thead .th.hidden,
+.table thead td.hidden,
+.table thead th.hidden {
+    display: none !important
+}
+
+.table .cell-wrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.table .checkbox,
+.table .radio,
+.table .switch {
+    height: initial
+}
+
+.table-component {
+    display: block;
+    position: relative
+}
+
+.table-bottom {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.table-info,
+.table-pagination {
+    flex-basis: auto
+}
+
+.table-progress {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 2
+}
+
+.table-progress [class*=activity-] {
+    margin: 0 auto
+}
+
+.table-inspector {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    color: #1d1d1d;
+    z-index: 500;
+    border: 1px double #dfdfdf;
+    width: auto;
+    padding: 10px;
+    max-height: calc(100vh - 40px);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3)
+}
+
+.table-inspector .table-inspector-header {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 .5rem .5rem;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 24px;
+    font-weight: 100;
+    margin-bottom: .5rem
+}
+
+.table-inspector .table-wrap {
+    display: block;
+    height: calc(100% - 110px);
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.table-inspector .table-inspector-actions {
+    display: block;
+    position: relative;
+    border-top: 1px solid #dfdfdf;
+    padding: .5rem .5rem 0;
+    margin-top: .5rem
+}
+
+.table-inspector .table,
+.table-inspector table {
+    margin-bottom: 0
+}
+
+.table-inspector .table .td,
+.table-inspector .table td,
+.table-inspector table .td,
+.table-inspector table td {
+    vertical-align: middle
+}
+
+.table-inspector .table .tr.flash,
+.table-inspector .table tr.flash,
+.table-inspector table .tr.flash,
+.table-inspector table tr.flash {
+    animation: flash-bg 1s ease-out;
+    animation-iteration-count: 1
+}
+
+.table-inspector .spinner {
+    width: 120px
+}
+
+.table-inspector .spinner input {
+    font-size: 14px
+}
+
+.table-inspector.open {
+    display: block
+}
+
+.table-form {
+    display: block;
+    position: absolute;
+    z-index: 500;
+    height: auto;
+    max-height: calc(100vh - 40px);
+    width: auto;
+    max-width: calc(100vw - 40px);
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3)
+}
+
+@keyframes flash-bg {
+    0% {
+        background-color: #fff
+    }
+
+    30% {
+        background-color: #bebebe
+    }
+
+    100% {
+        background-color: #fff
+    }
+}
+
+@media screen and (min-width:0) {
+
+    .table.normal-fs .td,
+    .table.normal-fs .th,
+    .table.normal-fs td,
+    .table.normal-fs th {
+        padding: .625rem;
+        font-size: 1em
+    }
+
+    .table.compact-fs .td,
+    .table.compact-fs .th,
+    .table.compact-fs td,
+    .table.compact-fs th {
+        padding: 7px 8px;
+        font-size: 80%
+    }
+
+    .table.subcompact-fs .td,
+    .table.subcompact-fs .th,
+    .table.subcompact-fs td,
+    .table.subcompact-fs th {
+        padding: 3px 8px;
+        font-size: 80%
+    }
+}
+
+@media screen and (min-width:576px) {
+
+    .table.normal-sm .td,
+    .table.normal-sm .th,
+    .table.normal-sm td,
+    .table.normal-sm th {
+        padding: .625rem;
+        font-size: 1em
+    }
+
+    .table.compact-sm .td,
+    .table.compact-sm .th,
+    .table.compact-sm td,
+    .table.compact-sm th {
+        padding: 7px 8px;
+        font-size: 80%
+    }
+
+    .table.subcompact-sm .td,
+    .table.subcompact-sm .th,
+    .table.subcompact-sm td,
+    .table.subcompact-sm th {
+        padding: 3px 8px;
+        font-size: 80%
+    }
+}
+
+@media screen and (min-width:768px) {
+
+    .table.normal-md .td,
+    .table.normal-md .th,
+    .table.normal-md td,
+    .table.normal-md th {
+        padding: .625rem;
+        font-size: 1em
+    }
+
+    .table.compact-md .td,
+    .table.compact-md .th,
+    .table.compact-md td,
+    .table.compact-md th {
+        padding: 7px 8px;
+        font-size: 80%
+    }
+
+    .table.subcompact-md .td,
+    .table.subcompact-md .th,
+    .table.subcompact-md td,
+    .table.subcompact-md th {
+        padding: 3px 8px;
+        font-size: 80%
+    }
+}
+
+@media screen and (min-width:992px) {
+
+    .table.normal-lg .td,
+    .table.normal-lg .th,
+    .table.normal-lg td,
+    .table.normal-lg th {
+        padding: .625rem;
+        font-size: 1em
+    }
+
+    .table.compact-lg .td,
+    .table.compact-lg .th,
+    .table.compact-lg td,
+    .table.compact-lg th {
+        padding: 7px 8px;
+        font-size: 80%
+    }
+
+    .table.subcompact-lg .td,
+    .table.subcompact-lg .th,
+    .table.subcompact-lg td,
+    .table.subcompact-lg th {
+        padding: 3px 8px;
+        font-size: 80%
+    }
+}
+
+@media screen and (min-width:1200px) {
+
+    .table.normal-xl .td,
+    .table.normal-xl .th,
+    .table.normal-xl td,
+    .table.normal-xl th {
+        padding: .625rem;
+        font-size: 1em
+    }
+
+    .table.compact-xl .td,
+    .table.compact-xl .th,
+    .table.compact-xl td,
+    .table.compact-xl th {
+        padding: 7px 8px;
+        font-size: 80%
+    }
+
+    .table.subcompact-xl .td,
+    .table.subcompact-xl .th,
+    .table.subcompact-xl td,
+    .table.subcompact-xl th {
+        padding: 3px 8px;
+        font-size: 80%
+    }
+}
+
+@media screen and (min-width:1452px) {
+
+    .table.normal-xxl .td,
+    .table.normal-xxl .th,
+    .table.normal-xxl td,
+    .table.normal-xxl th {
+        padding: .625rem;
+        font-size: 1em
+    }
+
+    .table.compact-xxl .td,
+    .table.compact-xxl .th,
+    .table.compact-xxl td,
+    .table.compact-xxl th {
+        padding: 7px 8px;
+        font-size: 80%
+    }
+
+    .table.subcompact-xxl .td,
+    .table.subcompact-xxl .th,
+    .table.subcompact-xxl td,
+    .table.subcompact-xxl th {
+        padding: 3px 8px;
+        font-size: 80%
+    }
+}
+
+.action-button,
+.button,
+.flat-button {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0 .75rem;
+    font-size: .875rem;
+    line-height: 34px;
+    height: 36px;
+    transition: all .15s ease-in-out;
+    background-color: #ebebeb;
+    color: #1d1d1d;
+    cursor: pointer;
+    outline: 0;
+    position: relative
+}
+
+.flat-button {
+    min-width: 64px;
+    background-color: transparent
+}
+
+.button.focus,
+.button:active,
+.button:focus {
+    box-shadow: 0 0 0 3px rgba(228, 228, 228, .45)
+}
+
+.button:hover {
+    background-color: rgba(29, 29, 29, .1)
+}
+
+.button.link {
+    background-color: transparent;
+    color: #0366d6
+}
+
+.button.link:hover {
+    background-color: transparent;
+    color: #0056b3;
+    text-decoration: underline
+}
+
+.button.link.focus,
+.button.link:focus {
+    box-shadow: none
+}
+
+.button.hovered:hover {
+    background-color: rgba(29, 29, 29, .2)
+}
+
+.button img {
+    height: 1rem
+}
+
+.button.mini {
+    font-size: .625rem;
+    padding: 0 .5rem;
+    height: 20px;
+    line-height: 20px
+}
+
+.button.mini img {
+    height: .625rem
+}
+
+.button.small {
+    font-size: .75rem;
+    padding: 0 .6rem;
+    height: 26px;
+    line-height: 26px
+}
+
+.button.small img {
+    height: .75rem
+}
+
+.button.large {
+    font-size: 1.375rem;
+    padding: 0 1rem;
+    height: 53px;
+    line-height: 53px
+}
+
+.button.large img {
+    height: 1.375rem
+}
+
+.button.cycle,
+.button.square {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding-left: 0 !important;
+    padding-right: 0 !important
+}
+
+.button.cycle.mini,
+.button.square.mini {
+    width: 1.39875rem;
+    height: 1.39875rem
+}
+
+.button.cycle.small,
+.button.square.small {
+    width: 1.724375rem;
+    height: 1.724375rem
+}
+
+.button.cycle.large,
+.button.square.large {
+    width: 3.3125rem;
+    height: 3.3125rem
+}
+
+.button.cycle {
+    border-radius: 50%
+}
+
+.button.cycle.dropdown-toggle::before,
+.button.square.dropdown-toggle::before {
+    display: none
+}
+
+.button.dropdown-toggle.no-marker {
+    padding-right: .75rem !important
+}
+
+.command-button,
+.image-button {
+    padding: .5rem;
+    display: inline-flex;
+    font-size: 1.5rem;
+    transition: all .15s ease-in-out;
+    background-color: #ebebeb;
+    color: #1d1d1d;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    outline: 0;
+    position: relative;
+    font-weight: 500
+}
+
+.command-button.focus,
+.command-button:active,
+.command-button:focus,
+.image-button.focus,
+.image-button:active,
+.image-button:focus {
+    box-shadow: 0 0 0 3px rgba(228, 228, 228, .45)
+}
+
+.command-button .icon,
+.image-button .icon {
+    width: 2.6875rem;
+    height: 2.6875rem;
+    line-height: 2.6875rem;
+    font-size: 2rem;
+    color: inherit;
+    order: 1
+}
+
+.command-button .caption,
+.image-button .caption {
+    margin-left: .5rem;
+    text-align: left;
+    color: inherit;
+    order: 2;
+    font-weight: 400;
+    line-height: 1.2
+}
+
+.command-button .caption small,
+.image-button .caption small {
+    display: block;
+    font-size: .8rem
+}
+
+.command-button.icon-right .icon,
+.image-button.icon-right .icon {
+    order: 2
+}
+
+.command-button.icon-right .caption,
+.image-button.icon-right .caption {
+    order: 1;
+    margin-left: 0;
+    margin-right: .5rem
+}
+
+.image-button {
+    font-size: 14px;
+    padding: 0 .5rem 0 0;
+    align-items: center;
+    height: 36px;
+    line-height: 30px;
+    font-weight: 400
+}
+
+.image-button .icon {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 1rem;
+    background-color: rgba(69, 90, 100, .55);
+    color: #fff;
+    order: 1
+}
+
+.image-button .caption {
+    order: 2;
+    color: inherit
+}
+
+.image-button.icon-right {
+    padding: 0 0 0 .5rem
+}
+
+.image-button.icon-right .icon {
+    order: 2
+}
+
+.image-button.icon-right .caption {
+    order: 1
+}
+
+.shortcut {
+    width: 6rem;
+    height: 6rem;
+    padding: .5rem;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: .9rem;
+    transition: all .15s ease-in-out;
+    background-color: #ebebeb;
+    color: #1d1d1d;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    outline: 0
+}
+
+.shortcut.focus,
+.shortcut:active,
+.shortcut:focus {
+    box-shadow: 0 0 0 3px rgba(228, 228, 228, .45)
+}
+
+.shortcut .caption,
+.shortcut .icon {
+    display: block
+}
+
+.shortcut .icon {
+    display: block;
+    vertical-align: middle;
+    width: 1.7rem;
+    height: 1.7rem;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    order: 1
+}
+
+.shortcut .caption {
+    color: inherit;
+    height: 1.2rem;
+    order: 2
+}
+
+.shortcut .icon~.caption {
+    margin-top: .875rem
+}
+
+.shortcut .tag {
+    position: absolute;
+    font-size: .6875rem;
+    top: .25rem;
+    right: .25rem;
+    color: inherit
+}
+
+.shortcut.no-caption .icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    margin-top: 1.5rem
+}
+
+.tool-button {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    background-color: #ebebeb;
+    color: #1d1d1d;
+    user-select: none;
+    border: 1px solid transparent;
+    transition: all .15s ease-in-out;
+    padding: 0;
+    cursor: pointer;
+    outline: 0;
+    margin: 0 2px;
+    position: relative
+}
+
+.tool-button .icon,
+.tool-button [class*=mif],
+.tool-button img {
+    height: 1rem;
+    max-height: 1rem;
+    font-size: 1rem
+}
+
+.tool-button.text-button {
+    width: auto;
+    padding-left: .5rem;
+    padding-right: .5rem
+}
+
+.toolbar {
+    display: inline-flex;
+    position: relative;
+    padding: 0 0 0 .5725rem;
+    top: 2px;
+    flex-flow: row nowrap
+}
+
+.toolbar.no-divider::before {
+    display: none
+}
+
+.toolbar::before {
+    position: absolute;
+    content: "";
+    width: .325rem;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(69, 90, 100, .2);
+    cursor: move
+}
+
+.toolbar.vertical {
+    flex-flow: column nowrap;
+    padding: .5725rem 0 0 0;
+    width: 32px
+}
+
+.toolbar.vertical::before {
+    width: 32px;
+    height: .325rem
+}
+
+.toolbar.vertical .tool-button {
+    margin: 2px 0
+}
+
+.dropdown-button,
+.info-button,
+.split-button {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    height: 36px;
+    line-height: 1
+}
+
+.split-button .split {
+    margin-left: -2px;
+    padding: 0 .75rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #e4e4e4;
+    border: 1px transparent solid;
+    color: #1d1d1d;
+    cursor: pointer;
+    outline: 0;
+    font-size: .875rem;
+    position: relative;
+    line-height: 36px;
+    height: 36px
+}
+
+.split-button .split.dropdown-toggle::before {
+    margin-left: -1.25rem
+}
+
+.split-button .split:hover {
+    background-color: #cbcbcb
+}
+
+.info-button {
+    height: 36px;
+    display: inline-flex;
+    border: 1px solid #dfdfdf;
+    background-color: #ebebeb;
+    overflow: hidden;
+    position: relative;
+    align-items: center
+}
+
+.info-button .button,
+.info-button .info {
+    border-right: none;
+    height: 100%;
+    line-height: 32px;
+    position: relative
+}
+
+.info-button .button:active,
+.info-button .button:focus,
+.info-button .info:active,
+.info-button .info:focus {
+    box-shadow: none !important
+}
+
+.info-button .button {
+    background-color: inherit;
+    color: inherit
+}
+
+.info-button .button:hover {
+    background-color: rgba(29, 29, 29, .1)
+}
+
+.info-button .info {
+    font-size: 12px;
+    background-color: #FEFEFE;
+    color: #1d1d1d;
+    padding: 0 .625rem;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 34px
+}
+
+.info-button .info:hover {
+    color: #0056b3
+}
+
+.button:focus,
+.button:hover,
+.command-button:focus,
+.command-button:hover,
+.image-button:focus,
+.image-button:hover,
+.shortcut:focus,
+.shortcut:hover,
+.split-button .split:focus,
+.split-button .split:hover,
+.tool-button:focus,
+.tool-button:hover {
+    text-decoration: none
+}
+
+.button:active,
+.command-button:active,
+.image-button:active,
+.shortcut:active,
+.split-button .split:active,
+.tool-button:active {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(190, 190, 190, .45)
+}
+
+.button.disabled,
+.button:disabled,
+.command-button.disabled,
+.command-button:disabled,
+.image-button.disabled,
+.image-button:disabled,
+.shortcut.disabled,
+.shortcut:disabled,
+.split-button .split.disabled,
+.split-button .split:disabled,
+.tool-button.disabled,
+.tool-button:disabled {
+    opacity: .65
+}
+
+.button.outline,
+.command-button.outline,
+.image-button.outline,
+.shortcut.outline,
+.split-button .split.outline,
+.tool-button.outline {
+    background: transparent none;
+    border-width: 1px;
+    border-color: #dfdfdf
+}
+
+.button:active,
+.command-button:active,
+.image-button:active,
+.shortcut:active,
+.split-button .split:active,
+.tool-button:active {
+    box-shadow: none
+}
+
+.button-group .active {
+    background-color: #989898;
+    color: #fff
+}
+
+.expand-button {
+    width: 36px;
+    height: 36px;
+    background-size: 1rem 1rem;
+    background: center center no-repeat;
+    text-indent: -9999px;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    float: left;
+    outline: 0
+}
+
+.expand-button span {
+    position: absolute;
+    left: .5rem;
+    width: 1.2rem;
+    height: 2px;
+    margin: 0 0 0;
+    background: #1d1d1d;
+    transform: rotate(0);
+    transition: all .3s linear
+}
+
+.expand-button span:after,
+.expand-button span:before {
+    content: '';
+    position: absolute;
+    top: -.5rem;
+    right: 0;
+    width: 1.2rem;
+    height: 2px;
+    background: #1d1d1d;
+    transform: rotate(0);
+    transition: all .3s linear
+}
+
+.expand-button span:after {
+    top: .5rem
+}
+
+.expand-button.transform span {
+    transform: rotate(180deg);
+    background: #1d1d1d
+}
+
+.expand-button.transform span:after,
+.expand-button.transform span:before {
+    content: '';
+    top: -5px;
+    right: 0;
+    width: .75rem;
+    transform: rotate(45deg)
+}
+
+.expand-button.transform span:after {
+    top: 5px;
+    transform: rotate(-45deg)
+}
+
+.expand-button.light span {
+    background-color: #fff
+}
+
+.expand-button.light span:after,
+.expand-button.light span:before {
+    background-color: #fff
+}
+
+.action-button {
+    padding: 0;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
+
+.action-button .icon {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 18px
+}
+
+.action-button .icon>* {
+    width: 100%;
+    max-height: 100%;
+    display: inline-block
+}
+
+.action-button.second {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
+
+.action-button.second .icon {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    margin-top: 0
+}
+
+.action-button.prime {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, .19), 0 8px 17px 0 rgba(0, 0, 0, .2)
+}
+
+.action-button:active {
+    box-shadow: 0 17px 50px 0 rgba(0, 0, 0, .19), 0 12px 15px 0 rgba(0, 0, 0, .24)
+}
+
+.multi-action {
+    display: inline-block;
+    position: relative;
+    width: 56px;
+    height: 56px
+}
+
+.multi-action .action-button {
+    position: absolute;
+    z-index: 2;
+    margin: 0 !important
+}
+
+.multi-action .actions {
+    position: absolute;
+    list-style: none inside none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    float: left;
+    background-color: transparent;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%
+}
+
+.multi-action .actions li {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    margin: 0;
+    background: #989898;
+    color: #fff;
+    transform: scale(.2);
+    line-height: 40px;
+    font-size: 20px;
+    transition: all .3s
+}
+
+.multi-action .actions li a {
+    background: inherit;
+    color: inherit;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none
+}
+
+.multi-action .actions li:active {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, .19), 0 8px 17px 0 rgba(0, 0, 0, .2)
+}
+
+.multi-action .action-button.active~.actions li {
+    transition: all .3s;
+    transform: scale(1)
+}
+
+.multi-action .action-button.active~.actions li:nth-child(1) {
+    margin-top: -56px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(2) {
+    margin-top: -104px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(3) {
+    margin-top: -152px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(4) {
+    margin-top: -200px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(5) {
+    margin-top: -248px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(6) {
+    margin-top: -296px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(7) {
+    margin-top: -344px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(8) {
+    margin-top: -392px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(9) {
+    margin-top: -440px
+}
+
+.multi-action .action-button.active~.actions li:nth-child(10) {
+    margin-top: -488px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(1) {
+    margin-top: 56px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(2) {
+    margin-top: 104px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(3) {
+    margin-top: 152px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(4) {
+    margin-top: 200px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(5) {
+    margin-top: 248px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(6) {
+    margin-top: 296px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(7) {
+    margin-top: 344px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(8) {
+    margin-top: 392px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(9) {
+    margin-top: 440px
+}
+
+.multi-action .action-button.active~.actions.drop-bottom li:nth-child(10) {
+    margin-top: 488px
+}
+
+.multi-action .action-button.active~.actions.drop-right li {
+    margin-top: 0
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(1) {
+    margin-left: 56px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(2) {
+    margin-left: 104px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(3) {
+    margin-left: 152px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(4) {
+    margin-left: 200px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(5) {
+    margin-left: 248px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(6) {
+    margin-left: 296px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(7) {
+    margin-left: 344px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(8) {
+    margin-left: 392px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(9) {
+    margin-left: 440px
+}
+
+.multi-action .action-button.active~.actions.drop-right li:nth-child(10) {
+    margin-left: 488px
+}
+
+.multi-action .action-button.active~.actions.drop-left li {
+    margin-top: 0
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(1) {
+    margin-left: -56px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(2) {
+    margin-left: -104px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(3) {
+    margin-left: -152px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(4) {
+    margin-left: -200px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(5) {
+    margin-left: -248px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(6) {
+    margin-left: -296px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(7) {
+    margin-left: -344px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(8) {
+    margin-left: -392px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(9) {
+    margin-left: -440px
+}
+
+.multi-action .action-button.active~.actions.drop-left li:nth-child(10) {
+    margin-left: -488px
+}
+
+.multi-action .action-button .icon {
+    transition: all .3s
+}
+
+.multi-action .action-button.active.rotate .icon {
+    transform: rotate(45deg)
+}
+
+.multi-action .action-button.active.rotate-minus .icon {
+    transform: rotate(-45deg)
+}
+
+.action-button.floating-action-top,
+.multi-action.floating-action-top {
+    z-index: 1080;
+    top: 90px;
+    left: 16px;
+    position: fixed
+}
+
+.action-button.floating-action-bottom,
+.multi-action.floating-action-bottom {
+    z-index: 1080;
+    bottom: 20px;
+    right: 20px;
+    position: fixed
+}
+
+a.action-button,
+a.button,
+a.command-button,
+a.flat-button,
+a.image-button,
+a.shortcut,
+a.split,
+a.split-button,
+a.tool-button {
+    color: #1d1d1d;
+    box-shadow: none;
+    text-decoration: none
+}
+
+a.action-button:hover,
+a.button:hover,
+a.command-button:hover,
+a.flat-button:hover,
+a.image-button:hover,
+a.shortcut:hover,
+a.split-button:hover,
+a.split:hover,
+a.tool-button:hover {
+    box-shadow: none
+}
+
+a.action-button.focus,
+a.action-button:active,
+a.action-button:focus,
+a.button.focus,
+a.button:active,
+a.button:focus,
+a.command-button.focus,
+a.command-button:active,
+a.command-button:focus,
+a.flat-button.focus,
+a.flat-button:active,
+a.flat-button:focus,
+a.image-button.focus,
+a.image-button:active,
+a.image-button:focus,
+a.shortcut.focus,
+a.shortcut:active,
+a.shortcut:focus,
+a.split-button.focus,
+a.split-button:active,
+a.split-button:focus,
+a.split.focus,
+a.split:active,
+a.split:focus,
+a.tool-button.focus,
+a.tool-button:active,
+a.tool-button:focus {
+    box-shadow: 0 0 0 3px rgba(228, 228, 228, .45)
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0 .75rem;
+    font-size: .875rem;
+    line-height: 34px;
+    height: 36px;
+    transition: all .15s ease-in-out;
+    background-color: #ebebeb;
+    color: #1d1d1d;
+    cursor: pointer;
+    outline: 0;
+    position: relative
+}
+
+input[type=button].focus,
+input[type=button]:active,
+input[type=button]:focus,
+input[type=reset].focus,
+input[type=reset]:active,
+input[type=reset]:focus,
+input[type=submit].focus,
+input[type=submit]:active,
+input[type=submit]:focus {
+    box-shadow: 0 0 0 3px rgba(228, 228, 228, .45)
+}
+
+input[type=button]:hover,
+input[type=reset]:hover,
+input[type=submit]:hover {
+    background-color: rgba(29, 29, 29, .1)
+}
+
+input[type=button].link,
+input[type=reset].link,
+input[type=submit].link {
+    background-color: transparent;
+    color: #0366d6
+}
+
+input[type=button].link:hover,
+input[type=reset].link:hover,
+input[type=submit].link:hover {
+    background-color: transparent;
+    color: #0056b3;
+    text-decoration: underline
+}
+
+input[type=button].link.focus,
+input[type=button].link:focus,
+input[type=reset].link.focus,
+input[type=reset].link:focus,
+input[type=submit].link.focus,
+input[type=submit].link:focus {
+    box-shadow: none
+}
+
+input[type=button].hovered:hover,
+input[type=reset].hovered:hover,
+input[type=submit].hovered:hover {
+    background-color: rgba(29, 29, 29, .2)
+}
+
+input[type=button] img,
+input[type=reset] img,
+input[type=submit] img {
+    height: 1rem
+}
+
+input[type=button].mini,
+input[type=reset].mini,
+input[type=submit].mini {
+    font-size: .625rem;
+    padding: 0 .5rem;
+    height: 20px;
+    line-height: 20px
+}
+
+input[type=button].mini img,
+input[type=reset].mini img,
+input[type=submit].mini img {
+    height: .625rem
+}
+
+input[type=button].small,
+input[type=reset].small,
+input[type=submit].small {
+    font-size: .75rem;
+    padding: 0 .6rem;
+    height: 26px;
+    line-height: 26px
+}
+
+input[type=button].small img,
+input[type=reset].small img,
+input[type=submit].small img {
+    height: .75rem
+}
+
+input[type=button].large,
+input[type=reset].large,
+input[type=submit].large {
+    font-size: 1.375rem;
+    padding: 0 1rem;
+    height: 53px;
+    line-height: 53px
+}
+
+input[type=button].large img,
+input[type=reset].large img,
+input[type=submit].large img {
+    height: 1.375rem
+}
+
+input[type=button].cycle,
+input[type=button].square,
+input[type=reset].cycle,
+input[type=reset].square,
+input[type=submit].cycle,
+input[type=submit].square {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding-left: 0 !important;
+    padding-right: 0 !important
+}
+
+input[type=button].cycle.mini,
+input[type=button].square.mini,
+input[type=reset].cycle.mini,
+input[type=reset].square.mini,
+input[type=submit].cycle.mini,
+input[type=submit].square.mini {
+    width: 1.39875rem;
+    height: 1.39875rem
+}
+
+input[type=button].cycle.small,
+input[type=button].square.small,
+input[type=reset].cycle.small,
+input[type=reset].square.small,
+input[type=submit].cycle.small,
+input[type=submit].square.small {
+    width: 1.724375rem;
+    height: 1.724375rem
+}
+
+input[type=button].cycle.large,
+input[type=button].square.large,
+input[type=reset].cycle.large,
+input[type=reset].square.large,
+input[type=submit].cycle.large,
+input[type=submit].square.large {
+    width: 3.3125rem;
+    height: 3.3125rem
+}
+
+input[type=button].cycle,
+input[type=reset].cycle,
+input[type=submit].cycle {
+    border-radius: 50%
+}
+
+input[type=button].cycle.dropdown-toggle::before,
+input[type=button].square.dropdown-toggle::before,
+input[type=reset].cycle.dropdown-toggle::before,
+input[type=reset].square.dropdown-toggle::before,
+input[type=submit].cycle.dropdown-toggle::before,
+input[type=submit].square.dropdown-toggle::before {
+    display: none
+}
+
+input[type=button].dropdown-toggle.no-marker,
+input[type=reset].dropdown-toggle.no-marker,
+input[type=submit].dropdown-toggle.no-marker {
+    padding-right: .75rem !important
+}
+
+input[type=button]:focus,
+input[type=button]:hover,
+input[type=reset]:focus,
+input[type=reset]:hover,
+input[type=submit]:focus,
+input[type=submit]:hover {
+    text-decoration: none
+}
+
+input[type=button]:active,
+input[type=reset]:active,
+input[type=submit]:active {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(190, 190, 190, .45)
+}
+
+input[type=button].disabled,
+input[type=button]:disabled,
+input[type=reset].disabled,
+input[type=reset]:disabled,
+input[type=submit].disabled,
+input[type=submit]:disabled {
+    opacity: .65
+}
+
+input[type=button].outline,
+input[type=reset].outline,
+input[type=submit].outline {
+    background: transparent none;
+    border-width: 1px;
+    border-color: #dfdfdf
+}
+
+input[type=button]:active,
+input[type=reset]:active,
+input[type=submit]:active {
+    box-shadow: none
+}
+
+.file,
+.input,
+.select,
+.spinner,
+.tag-input,
+.textarea,
+input[type=datetime-local],
+input[type=email],
+input[type=file],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
+select,
+textarea {
+    appearance: none;
+    position: relative;
+    border: 1px #d9d9d9 solid;
+    color: #1d1d1d;
+    width: 100%;
+    display: block;
+    padding: 0 .75rem;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    height: 36px;
+    line-height: 36px;
+    background: #fff none;
+    background-clip: padding-box;
+    min-width: 0
+}
+
+.file:focus,
+.input:focus,
+.select:focus,
+.spinner:focus,
+.tag-input:focus,
+.textarea:focus,
+input[type=datetime-local]:focus,
+input[type=email]:focus,
+input[type=file]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+select:focus,
+textarea:focus {
+    outline: 0
+}
+
+.file:hover,
+.input:hover,
+.select:hover,
+.spinner:hover,
+.tag-input:hover,
+.textarea:hover,
+input[type=datetime-local]:hover,
+input[type=email]:hover,
+input[type=file]:hover,
+input[type=month]:hover,
+input[type=number]:hover,
+input[type=password]:hover,
+input[type=search]:hover,
+input[type=tel]:hover,
+input[type=text]:hover,
+input[type=time]:hover,
+input[type=url]:hover,
+input[type=week]:hover,
+select:hover,
+textarea:hover {
+    border-color: silver
+}
+
+.file .input-clear-button,
+.file .input-reveal-button,
+.input .input-clear-button,
+.input .input-reveal-button,
+.select .input-clear-button,
+.select .input-reveal-button,
+.spinner .input-clear-button,
+.spinner .input-reveal-button,
+.tag-input .input-clear-button,
+.tag-input .input-reveal-button,
+.textarea .input-clear-button,
+.textarea .input-reveal-button,
+input[type=datetime-local] .input-clear-button,
+input[type=datetime-local] .input-reveal-button,
+input[type=email] .input-clear-button,
+input[type=email] .input-reveal-button,
+input[type=file] .input-clear-button,
+input[type=file] .input-reveal-button,
+input[type=month] .input-clear-button,
+input[type=month] .input-reveal-button,
+input[type=number] .input-clear-button,
+input[type=number] .input-reveal-button,
+input[type=password] .input-clear-button,
+input[type=password] .input-reveal-button,
+input[type=search] .input-clear-button,
+input[type=search] .input-reveal-button,
+input[type=tel] .input-clear-button,
+input[type=tel] .input-reveal-button,
+input[type=text] .input-clear-button,
+input[type=text] .input-reveal-button,
+input[type=time] .input-clear-button,
+input[type=time] .input-reveal-button,
+input[type=url] .input-clear-button,
+input[type=url] .input-reveal-button,
+input[type=week] .input-clear-button,
+input[type=week] .input-reveal-button,
+select .input-clear-button,
+select .input-reveal-button,
+textarea .input-clear-button,
+textarea .input-reveal-button {
+    visibility: hidden
+}
+
+.file .input-clear-button:active,
+.file .input-clear-button:focus,
+.file .input-clear-button:hover,
+.file .input-reveal-button:active,
+.file .input-reveal-button:focus,
+.file .input-reveal-button:hover,
+.input .input-clear-button:active,
+.input .input-clear-button:focus,
+.input .input-clear-button:hover,
+.input .input-reveal-button:active,
+.input .input-reveal-button:focus,
+.input .input-reveal-button:hover,
+.select .input-clear-button:active,
+.select .input-clear-button:focus,
+.select .input-clear-button:hover,
+.select .input-reveal-button:active,
+.select .input-reveal-button:focus,
+.select .input-reveal-button:hover,
+.spinner .input-clear-button:active,
+.spinner .input-clear-button:focus,
+.spinner .input-clear-button:hover,
+.spinner .input-reveal-button:active,
+.spinner .input-reveal-button:focus,
+.spinner .input-reveal-button:hover,
+.tag-input .input-clear-button:active,
+.tag-input .input-clear-button:focus,
+.tag-input .input-clear-button:hover,
+.tag-input .input-reveal-button:active,
+.tag-input .input-reveal-button:focus,
+.tag-input .input-reveal-button:hover,
+.textarea .input-clear-button:active,
+.textarea .input-clear-button:focus,
+.textarea .input-clear-button:hover,
+.textarea .input-reveal-button:active,
+.textarea .input-reveal-button:focus,
+.textarea .input-reveal-button:hover,
+input[type=datetime-local] .input-clear-button:active,
+input[type=datetime-local] .input-clear-button:focus,
+input[type=datetime-local] .input-clear-button:hover,
+input[type=datetime-local] .input-reveal-button:active,
+input[type=datetime-local] .input-reveal-button:focus,
+input[type=datetime-local] .input-reveal-button:hover,
+input[type=email] .input-clear-button:active,
+input[type=email] .input-clear-button:focus,
+input[type=email] .input-clear-button:hover,
+input[type=email] .input-reveal-button:active,
+input[type=email] .input-reveal-button:focus,
+input[type=email] .input-reveal-button:hover,
+input[type=file] .input-clear-button:active,
+input[type=file] .input-clear-button:focus,
+input[type=file] .input-clear-button:hover,
+input[type=file] .input-reveal-button:active,
+input[type=file] .input-reveal-button:focus,
+input[type=file] .input-reveal-button:hover,
+input[type=month] .input-clear-button:active,
+input[type=month] .input-clear-button:focus,
+input[type=month] .input-clear-button:hover,
+input[type=month] .input-reveal-button:active,
+input[type=month] .input-reveal-button:focus,
+input[type=month] .input-reveal-button:hover,
+input[type=number] .input-clear-button:active,
+input[type=number] .input-clear-button:focus,
+input[type=number] .input-clear-button:hover,
+input[type=number] .input-reveal-button:active,
+input[type=number] .input-reveal-button:focus,
+input[type=number] .input-reveal-button:hover,
+input[type=password] .input-clear-button:active,
+input[type=password] .input-clear-button:focus,
+input[type=password] .input-clear-button:hover,
+input[type=password] .input-reveal-button:active,
+input[type=password] .input-reveal-button:focus,
+input[type=password] .input-reveal-button:hover,
+input[type=search] .input-clear-button:active,
+input[type=search] .input-clear-button:focus,
+input[type=search] .input-clear-button:hover,
+input[type=search] .input-reveal-button:active,
+input[type=search] .input-reveal-button:focus,
+input[type=search] .input-reveal-button:hover,
+input[type=tel] .input-clear-button:active,
+input[type=tel] .input-clear-button:focus,
+input[type=tel] .input-clear-button:hover,
+input[type=tel] .input-reveal-button:active,
+input[type=tel] .input-reveal-button:focus,
+input[type=tel] .input-reveal-button:hover,
+input[type=text] .input-clear-button:active,
+input[type=text] .input-clear-button:focus,
+input[type=text] .input-clear-button:hover,
+input[type=text] .input-reveal-button:active,
+input[type=text] .input-reveal-button:focus,
+input[type=text] .input-reveal-button:hover,
+input[type=time] .input-clear-button:active,
+input[type=time] .input-clear-button:focus,
+input[type=time] .input-clear-button:hover,
+input[type=time] .input-reveal-button:active,
+input[type=time] .input-reveal-button:focus,
+input[type=time] .input-reveal-button:hover,
+input[type=url] .input-clear-button:active,
+input[type=url] .input-clear-button:focus,
+input[type=url] .input-clear-button:hover,
+input[type=url] .input-reveal-button:active,
+input[type=url] .input-reveal-button:focus,
+input[type=url] .input-reveal-button:hover,
+input[type=week] .input-clear-button:active,
+input[type=week] .input-clear-button:focus,
+input[type=week] .input-clear-button:hover,
+input[type=week] .input-reveal-button:active,
+input[type=week] .input-reveal-button:focus,
+input[type=week] .input-reveal-button:hover,
+select .input-clear-button:active,
+select .input-clear-button:focus,
+select .input-clear-button:hover,
+select .input-reveal-button:active,
+select .input-reveal-button:focus,
+select .input-reveal-button:hover,
+textarea .input-clear-button:active,
+textarea .input-clear-button:focus,
+textarea .input-clear-button:hover,
+textarea .input-reveal-button:active,
+textarea .input-reveal-button:focus,
+textarea .input-reveal-button:hover {
+    visibility: visible
+}
+
+.file.focused,
+.file:focus,
+.input.focused,
+.input:focus,
+.select.focused,
+.select:focus,
+.spinner.focused,
+.spinner:focus,
+.tag-input.focused,
+.tag-input:focus,
+.textarea.focused,
+.textarea:focus,
+input[type=datetime-local].focused,
+input[type=datetime-local]:focus,
+input[type=email].focused,
+input[type=email]:focus,
+input[type=file].focused,
+input[type=file]:focus,
+input[type=month].focused,
+input[type=month]:focus,
+input[type=number].focused,
+input[type=number]:focus,
+input[type=password].focused,
+input[type=password]:focus,
+input[type=search].focused,
+input[type=search]:focus,
+input[type=tel].focused,
+input[type=tel]:focus,
+input[type=text].focused,
+input[type=text]:focus,
+input[type=time].focused,
+input[type=time]:focus,
+input[type=url].focused,
+input[type=url]:focus,
+input[type=week].focused,
+input[type=week]:focus,
+select.focused,
+select:focus,
+textarea.focused,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(228, 228, 228, .45)
+}
+
+.file.focused .input-clear-button,
+.file.focused .input-reveal-button,
+.file:focus .input-clear-button,
+.file:focus .input-reveal-button,
+.file:hover .input-clear-button,
+.file:hover .input-reveal-button,
+.input.focused .input-clear-button,
+.input.focused .input-reveal-button,
+.input:focus .input-clear-button,
+.input:focus .input-reveal-button,
+.input:hover .input-clear-button,
+.input:hover .input-reveal-button,
+.select.focused .input-clear-button,
+.select.focused .input-reveal-button,
+.select:focus .input-clear-button,
+.select:focus .input-reveal-button,
+.select:hover .input-clear-button,
+.select:hover .input-reveal-button,
+.spinner.focused .input-clear-button,
+.spinner.focused .input-reveal-button,
+.spinner:focus .input-clear-button,
+.spinner:focus .input-reveal-button,
+.spinner:hover .input-clear-button,
+.spinner:hover .input-reveal-button,
+.tag-input.focused .input-clear-button,
+.tag-input.focused .input-reveal-button,
+.tag-input:focus .input-clear-button,
+.tag-input:focus .input-reveal-button,
+.tag-input:hover .input-clear-button,
+.tag-input:hover .input-reveal-button,
+.textarea.focused .input-clear-button,
+.textarea.focused .input-reveal-button,
+.textarea:focus .input-clear-button,
+.textarea:focus .input-reveal-button,
+.textarea:hover .input-clear-button,
+.textarea:hover .input-reveal-button,
+input[type=datetime-local].focused .input-clear-button,
+input[type=datetime-local].focused .input-reveal-button,
+input[type=datetime-local]:focus .input-clear-button,
+input[type=datetime-local]:focus .input-reveal-button,
+input[type=datetime-local]:hover .input-clear-button,
+input[type=datetime-local]:hover .input-reveal-button,
+input[type=email].focused .input-clear-button,
+input[type=email].focused .input-reveal-button,
+input[type=email]:focus .input-clear-button,
+input[type=email]:focus .input-reveal-button,
+input[type=email]:hover .input-clear-button,
+input[type=email]:hover .input-reveal-button,
+input[type=file].focused .input-clear-button,
+input[type=file].focused .input-reveal-button,
+input[type=file]:focus .input-clear-button,
+input[type=file]:focus .input-reveal-button,
+input[type=file]:hover .input-clear-button,
+input[type=file]:hover .input-reveal-button,
+input[type=month].focused .input-clear-button,
+input[type=month].focused .input-reveal-button,
+input[type=month]:focus .input-clear-button,
+input[type=month]:focus .input-reveal-button,
+input[type=month]:hover .input-clear-button,
+input[type=month]:hover .input-reveal-button,
+input[type=number].focused .input-clear-button,
+input[type=number].focused .input-reveal-button,
+input[type=number]:focus .input-clear-button,
+input[type=number]:focus .input-reveal-button,
+input[type=number]:hover .input-clear-button,
+input[type=number]:hover .input-reveal-button,
+input[type=password].focused .input-clear-button,
+input[type=password].focused .input-reveal-button,
+input[type=password]:focus .input-clear-button,
+input[type=password]:focus .input-reveal-button,
+input[type=password]:hover .input-clear-button,
+input[type=password]:hover .input-reveal-button,
+input[type=search].focused .input-clear-button,
+input[type=search].focused .input-reveal-button,
+input[type=search]:focus .input-clear-button,
+input[type=search]:focus .input-reveal-button,
+input[type=search]:hover .input-clear-button,
+input[type=search]:hover .input-reveal-button,
+input[type=tel].focused .input-clear-button,
+input[type=tel].focused .input-reveal-button,
+input[type=tel]:focus .input-clear-button,
+input[type=tel]:focus .input-reveal-button,
+input[type=tel]:hover .input-clear-button,
+input[type=tel]:hover .input-reveal-button,
+input[type=text].focused .input-clear-button,
+input[type=text].focused .input-reveal-button,
+input[type=text]:focus .input-clear-button,
+input[type=text]:focus .input-reveal-button,
+input[type=text]:hover .input-clear-button,
+input[type=text]:hover .input-reveal-button,
+input[type=time].focused .input-clear-button,
+input[type=time].focused .input-reveal-button,
+input[type=time]:focus .input-clear-button,
+input[type=time]:focus .input-reveal-button,
+input[type=time]:hover .input-clear-button,
+input[type=time]:hover .input-reveal-button,
+input[type=url].focused .input-clear-button,
+input[type=url].focused .input-reveal-button,
+input[type=url]:focus .input-clear-button,
+input[type=url]:focus .input-reveal-button,
+input[type=url]:hover .input-clear-button,
+input[type=url]:hover .input-reveal-button,
+input[type=week].focused .input-clear-button,
+input[type=week].focused .input-reveal-button,
+input[type=week]:focus .input-clear-button,
+input[type=week]:focus .input-reveal-button,
+input[type=week]:hover .input-clear-button,
+input[type=week]:hover .input-reveal-button,
+select.focused .input-clear-button,
+select.focused .input-reveal-button,
+select:focus .input-clear-button,
+select:focus .input-reveal-button,
+select:hover .input-clear-button,
+select:hover .input-reveal-button,
+textarea.focused .input-clear-button,
+textarea.focused .input-reveal-button,
+textarea:focus .input-clear-button,
+textarea:focus .input-reveal-button,
+textarea:hover .input-clear-button,
+textarea:hover .input-reveal-button {
+    visibility: visible
+}
+
+.file.disabled,
+.file:disabled,
+.input.disabled,
+.input:disabled,
+.select.disabled,
+.select:disabled,
+.spinner.disabled,
+.spinner:disabled,
+.tag-input.disabled,
+.tag-input:disabled,
+.textarea.disabled,
+.textarea:disabled,
+input[type=datetime-local].disabled,
+input[type=datetime-local]:disabled,
+input[type=email].disabled,
+input[type=email]:disabled,
+input[type=file].disabled,
+input[type=file]:disabled,
+input[type=month].disabled,
+input[type=month]:disabled,
+input[type=number].disabled,
+input[type=number]:disabled,
+input[type=password].disabled,
+input[type=password]:disabled,
+input[type=search].disabled,
+input[type=search]:disabled,
+input[type=tel].disabled,
+input[type=tel]:disabled,
+input[type=text].disabled,
+input[type=text]:disabled,
+input[type=time].disabled,
+input[type=time]:disabled,
+input[type=url].disabled,
+input[type=url]:disabled,
+input[type=week].disabled,
+input[type=week]:disabled,
+select.disabled,
+select:disabled,
+textarea.disabled,
+textarea:disabled {
+    pointer-events: none;
+    border-color: #ebebeb;
+    background-color: #e9e9e9
+}
+
+.file.hide-cursor input,
+.input.hide-cursor input,
+.select.hide-cursor input,
+.spinner.hide-cursor input,
+.tag-input.hide-cursor input,
+.textarea.hide-cursor input,
+input[type=datetime-local].hide-cursor input,
+input[type=email].hide-cursor input,
+input[type=file].hide-cursor input,
+input[type=month].hide-cursor input,
+input[type=number].hide-cursor input,
+input[type=password].hide-cursor input,
+input[type=search].hide-cursor input,
+input[type=tel].hide-cursor input,
+input[type=text].hide-cursor input,
+input[type=time].hide-cursor input,
+input[type=url].hide-cursor input,
+input[type=week].hide-cursor input,
+select.hide-cursor input,
+textarea.hide-cursor input {
+    color: transparent;
+    text-shadow: 0 0 0 #1d1d1d
+}
+
+.file::-ms-clear,
+.input::-ms-clear,
+.select::-ms-clear,
+.spinner::-ms-clear,
+.tag-input::-ms-clear,
+.textarea::-ms-clear,
+input[type=datetime-local]::-ms-clear,
+input[type=email]::-ms-clear,
+input[type=file]::-ms-clear,
+input[type=month]::-ms-clear,
+input[type=number]::-ms-clear,
+input[type=password]::-ms-clear,
+input[type=search]::-ms-clear,
+input[type=tel]::-ms-clear,
+input[type=text]::-ms-clear,
+input[type=time]::-ms-clear,
+input[type=url]::-ms-clear,
+input[type=week]::-ms-clear,
+select::-ms-clear,
+textarea::-ms-clear {
+    display: none
+}
+
+.file::-ms-reveal,
+.input::-ms-reveal,
+.select::-ms-reveal,
+.spinner::-ms-reveal,
+.tag-input::-ms-reveal,
+.textarea::-ms-reveal,
+input[type=datetime-local]::-ms-reveal,
+input[type=email]::-ms-reveal,
+input[type=file]::-ms-reveal,
+input[type=month]::-ms-reveal,
+input[type=number]::-ms-reveal,
+input[type=password]::-ms-reveal,
+input[type=search]::-ms-reveal,
+input[type=tel]::-ms-reveal,
+input[type=text]::-ms-reveal,
+input[type=time]::-ms-reveal,
+input[type=url]::-ms-reveal,
+input[type=week]::-ms-reveal,
+select::-ms-reveal,
+textarea::-ms-reveal {
+    display: none
+}
+
+.file::-webkit-clear-button,
+.input::-webkit-clear-button,
+.select::-webkit-clear-button,
+.spinner::-webkit-clear-button,
+.tag-input::-webkit-clear-button,
+.textarea::-webkit-clear-button,
+input[type=datetime-local]::-webkit-clear-button,
+input[type=email]::-webkit-clear-button,
+input[type=file]::-webkit-clear-button,
+input[type=month]::-webkit-clear-button,
+input[type=number]::-webkit-clear-button,
+input[type=password]::-webkit-clear-button,
+input[type=search]::-webkit-clear-button,
+input[type=tel]::-webkit-clear-button,
+input[type=text]::-webkit-clear-button,
+input[type=time]::-webkit-clear-button,
+input[type=url]::-webkit-clear-button,
+input[type=week]::-webkit-clear-button,
+select::-webkit-clear-button,
+textarea::-webkit-clear-button {
+    display: none
+}
+
+.file::-webkit-inner-spin-button,
+.input::-webkit-inner-spin-button,
+.select::-webkit-inner-spin-button,
+.spinner::-webkit-inner-spin-button,
+.tag-input::-webkit-inner-spin-button,
+.textarea::-webkit-inner-spin-button,
+input[type=datetime-local]::-webkit-inner-spin-button,
+input[type=email]::-webkit-inner-spin-button,
+input[type=file]::-webkit-inner-spin-button,
+input[type=month]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button,
+input[type=password]::-webkit-inner-spin-button,
+input[type=search]::-webkit-inner-spin-button,
+input[type=tel]::-webkit-inner-spin-button,
+input[type=text]::-webkit-inner-spin-button,
+input[type=time]::-webkit-inner-spin-button,
+input[type=url]::-webkit-inner-spin-button,
+input[type=week]::-webkit-inner-spin-button,
+select::-webkit-inner-spin-button,
+textarea::-webkit-inner-spin-button {
+    height: 100%
+}
+
+.file.required,
+.input.required,
+.select.required,
+.spinner.required,
+.tag-input.required,
+.textarea.required,
+input[type=datetime-local].required,
+input[type=email].required,
+input[type=file].required,
+input[type=month].required,
+input[type=number].required,
+input[type=password].required,
+input[type=search].required,
+input[type=tel].required,
+input[type=text].required,
+input[type=time].required,
+input[type=url].required,
+input[type=week].required,
+select.required,
+textarea.required {
+    border: 1px #1ba1e2 dashed !important
+}
+
+.file.required.focused,
+.file.required:focus,
+.input.required.focused,
+.input.required:focus,
+.select.required.focused,
+.select.required:focus,
+.spinner.required.focused,
+.spinner.required:focus,
+.tag-input.required.focused,
+.tag-input.required:focus,
+.textarea.required.focused,
+.textarea.required:focus,
+input[type=datetime-local].required.focused,
+input[type=datetime-local].required:focus,
+input[type=email].required.focused,
+input[type=email].required:focus,
+input[type=file].required.focused,
+input[type=file].required:focus,
+input[type=month].required.focused,
+input[type=month].required:focus,
+input[type=number].required.focused,
+input[type=number].required:focus,
+input[type=password].required.focused,
+input[type=password].required:focus,
+input[type=search].required.focused,
+input[type=search].required:focus,
+input[type=tel].required.focused,
+input[type=tel].required:focus,
+input[type=text].required.focused,
+input[type=text].required:focus,
+input[type=time].required.focused,
+input[type=time].required:focus,
+input[type=url].required.focused,
+input[type=url].required:focus,
+input[type=week].required.focused,
+input[type=week].required:focus,
+select.required.focused,
+select.required:focus,
+textarea.required.focused,
+textarea.required:focus {
+    box-shadow: 0 0 0 3px rgba(27, 161, 226, .45) !important
+}
+
+.file.invalid,
+.input.invalid,
+.select.invalid,
+.spinner.invalid,
+.tag-input.invalid,
+.textarea.invalid,
+input[type=datetime-local].invalid,
+input[type=email].invalid,
+input[type=file].invalid,
+input[type=month].invalid,
+input[type=number].invalid,
+input[type=password].invalid,
+input[type=search].invalid,
+input[type=tel].invalid,
+input[type=text].invalid,
+input[type=time].invalid,
+input[type=url].invalid,
+input[type=week].invalid,
+select.invalid,
+textarea.invalid {
+    border: 1px #CE352C solid !important
+}
+
+.file.invalid.focused,
+.file.invalid:focus,
+.input.invalid.focused,
+.input.invalid:focus,
+.select.invalid.focused,
+.select.invalid:focus,
+.spinner.invalid.focused,
+.spinner.invalid:focus,
+.tag-input.invalid.focused,
+.tag-input.invalid:focus,
+.textarea.invalid.focused,
+.textarea.invalid:focus,
+input[type=datetime-local].invalid.focused,
+input[type=datetime-local].invalid:focus,
+input[type=email].invalid.focused,
+input[type=email].invalid:focus,
+input[type=file].invalid.focused,
+input[type=file].invalid:focus,
+input[type=month].invalid.focused,
+input[type=month].invalid:focus,
+input[type=number].invalid.focused,
+input[type=number].invalid:focus,
+input[type=password].invalid.focused,
+input[type=password].invalid:focus,
+input[type=search].invalid.focused,
+input[type=search].invalid:focus,
+input[type=tel].invalid.focused,
+input[type=tel].invalid:focus,
+input[type=text].invalid.focused,
+input[type=text].invalid:focus,
+input[type=time].invalid.focused,
+input[type=time].invalid:focus,
+input[type=url].invalid.focused,
+input[type=url].invalid:focus,
+input[type=week].invalid.focused,
+input[type=week].invalid:focus,
+select.invalid.focused,
+select.invalid:focus,
+textarea.invalid.focused,
+textarea.invalid:focus {
+    box-shadow: 0 0 0 3px rgba(206, 53, 44, .45) !important
+}
+
+.file.invalid::after,
+.input.invalid::after,
+.select.invalid::after,
+.spinner.invalid::after,
+.tag-input.invalid::after,
+.textarea.invalid::after,
+input[type=datetime-local].invalid::after,
+input[type=email].invalid::after,
+input[type=file].invalid::after,
+input[type=month].invalid::after,
+input[type=number].invalid::after,
+input[type=password].invalid::after,
+input[type=search].invalid::after,
+input[type=tel].invalid::after,
+input[type=text].invalid::after,
+input[type=time].invalid::after,
+input[type=url].invalid::after,
+input[type=week].invalid::after,
+select.invalid::after,
+textarea.invalid::after {
+    position: absolute;
+    content: "!";
+    color: #CE352C;
+    left: -16px;
+    top: 0;
+    font-size: 1.625rem;
+    font-weight: 700
+}
+
+.file.valid,
+.input.valid,
+.select.valid,
+.spinner.valid,
+.tag-input.valid,
+.textarea.valid,
+input[type=datetime-local].valid,
+input[type=email].valid,
+input[type=file].valid,
+input[type=month].valid,
+input[type=number].valid,
+input[type=password].valid,
+input[type=search].valid,
+input[type=tel].valid,
+input[type=text].valid,
+input[type=time].valid,
+input[type=url].valid,
+input[type=week].valid,
+select.valid,
+textarea.valid {
+    border: 1px #60a917 solid !important
+}
+
+.file.valid.focused,
+.file.valid:focus,
+.input.valid.focused,
+.input.valid:focus,
+.select.valid.focused,
+.select.valid:focus,
+.spinner.valid.focused,
+.spinner.valid:focus,
+.tag-input.valid.focused,
+.tag-input.valid:focus,
+.textarea.valid.focused,
+.textarea.valid:focus,
+input[type=datetime-local].valid.focused,
+input[type=datetime-local].valid:focus,
+input[type=email].valid.focused,
+input[type=email].valid:focus,
+input[type=file].valid.focused,
+input[type=file].valid:focus,
+input[type=month].valid.focused,
+input[type=month].valid:focus,
+input[type=number].valid.focused,
+input[type=number].valid:focus,
+input[type=password].valid.focused,
+input[type=password].valid:focus,
+input[type=search].valid.focused,
+input[type=search].valid:focus,
+input[type=tel].valid.focused,
+input[type=tel].valid:focus,
+input[type=text].valid.focused,
+input[type=text].valid:focus,
+input[type=time].valid.focused,
+input[type=time].valid:focus,
+input[type=url].valid.focused,
+input[type=url].valid:focus,
+input[type=week].valid.focused,
+input[type=week].valid:focus,
+select.valid.focused,
+select.valid:focus,
+textarea.valid.focused,
+textarea.valid:focus {
+    box-shadow: 0 0 0 3px rgba(96, 169, 23, .45) !important
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    width: auto
+}
+
+label {
+    margin-bottom: .5rem
+}
+
+.file .append,
+.file .prepend,
+.input .append,
+.input .prepend,
+.select .append,
+.select .prepend,
+.spinner .append,
+.spinner .prepend,
+.tag-input .append,
+.tag-input .prepend,
+.textarea .append,
+.textarea .prepend {
+    padding: .5rem .75rem;
+    background-color: #f8f8f8;
+    color: #1d1d1d;
+    line-height: 1.25rem;
+    white-space: nowrap
+}
+
+.hidden-input {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0
+}
+
+.file.disabled .caption,
+.file.disabled .select-input,
+.file.disabled .stars li,
+.file.disabled input,
+.file.disabled select,
+.file.disabled textarea,
+.file:disabled .caption,
+.file:disabled .select-input,
+.file:disabled .stars li,
+.file:disabled input,
+.file:disabled select,
+.file:disabled textarea,
+.input.disabled .caption,
+.input.disabled .select-input,
+.input.disabled .stars li,
+.input.disabled input,
+.input.disabled select,
+.input.disabled textarea,
+.input:disabled .caption,
+.input:disabled .select-input,
+.input:disabled .stars li,
+.input:disabled input,
+.input:disabled select,
+.input:disabled textarea,
+.rating.disabled .caption,
+.rating.disabled .select-input,
+.rating.disabled .stars li,
+.rating.disabled input,
+.rating.disabled select,
+.rating.disabled textarea,
+.rating:disabled .caption,
+.rating:disabled .select-input,
+.rating:disabled .stars li,
+.rating:disabled input,
+.rating:disabled select,
+.rating:disabled textarea,
+.select.disabled .caption,
+.select.disabled .select-input,
+.select.disabled .stars li,
+.select.disabled input,
+.select.disabled select,
+.select.disabled textarea,
+.select:disabled .caption,
+.select:disabled .select-input,
+.select:disabled .stars li,
+.select:disabled input,
+.select:disabled select,
+.select:disabled textarea,
+.spinner.disabled .caption,
+.spinner.disabled .select-input,
+.spinner.disabled .stars li,
+.spinner.disabled input,
+.spinner.disabled select,
+.spinner.disabled textarea,
+.spinner:disabled .caption,
+.spinner:disabled .select-input,
+.spinner:disabled .stars li,
+.spinner:disabled input,
+.spinner:disabled select,
+.spinner:disabled textarea,
+.tag-input.disabled .caption,
+.tag-input.disabled .select-input,
+.tag-input.disabled .stars li,
+.tag-input.disabled input,
+.tag-input.disabled select,
+.tag-input.disabled textarea,
+.tag-input:disabled .caption,
+.tag-input:disabled .select-input,
+.tag-input:disabled .stars li,
+.tag-input:disabled input,
+.tag-input:disabled select,
+.tag-input:disabled textarea,
+.textarea.disabled .caption,
+.textarea.disabled .select-input,
+.textarea.disabled .stars li,
+.textarea.disabled input,
+.textarea.disabled select,
+.textarea.disabled textarea,
+.textarea:disabled .caption,
+.textarea:disabled .select-input,
+.textarea:disabled .stars li,
+.textarea:disabled input,
+.textarea:disabled select,
+.textarea:disabled textarea {
+    background: 0 0;
+    color: #989898
+}
+
+.file.disabled .button-group,
+.file:disabled .button-group,
+.input.disabled .button-group,
+.input:disabled .button-group,
+.rating.disabled .button-group,
+.rating:disabled .button-group,
+.select.disabled .button-group,
+.select:disabled .button-group,
+.spinner.disabled .button-group,
+.spinner:disabled .button-group,
+.tag-input.disabled .button-group,
+.tag-input:disabled .button-group,
+.textarea.disabled .button-group,
+.textarea:disabled .button-group {
+    display: none
+}
+
+.invalid_feedback {
+    font-size: .9em;
+    color: #CE352C
+}
+
+.custom-validation input[required]:valid,
+.custom-validation select[required]:valid,
+.custom-validation textarea[required]:valid {
+    border-color: #60a917
+}
+
+.custom-validation input[required]:valid+.invalid_feedback,
+.custom-validation select[required]:valid+.invalid_feedback,
+.custom-validation textarea[required]:valid+.invalid_feedback {
+    display: none
+}
+
+.custom-validation input[required]:invalid,
+.custom-validation select[required]:invalid,
+.custom-validation textarea[required]:invalid {
+    border-color: #CE352C
+}
+
+.custom-validation input[required]:invalid+.invalid_feedback,
+.custom-validation select[required]:invalid+.invalid_feedback,
+.custom-validation textarea[required]:invalid+.invalid_feedback {
+    display: block
+}
+
+.invalid_feedback {
+    display: none
+}
+
+.invalid+.invalid_feedback,
+.invalid>.invalid_feedback {
+    display: block !important
+}
+
+::-webkit-search-cancel-button {
+    -webkit-appearance: none
+}
+
+::-webkit-search-results-button {
+    -webkit-appearance: none
+}
+
+input[type=search] {
+    -webkit-appearance: none
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    background-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none inside;
+    margin: 0 -.25rem 1rem -.25rem;
+    padding: 0;
+    user-select: none
+}
+
+.pagination .page-item {
+    cursor: pointer;
+    display: list-item;
+    background-color: #fff;
+    color: #1d1d1d;
+    border: 1px solid #dfdfdf;
+    margin: .25rem;
+    transition: all .15s ease-in-out
+}
+
+.pagination .page-link {
+    display: block;
+    position: relative;
+    padding: .5rem .75rem;
+    line-height: 1;
+    font-size: 1rem;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit
+}
+
+.pagination .page-item.service:hover,
+.pagination .page-item:hover {
+    background-color: rgba(29, 29, 29, .1)
+}
+
+.pagination .page-item.no-link {
+    pointer-events: none;
+    cursor: default;
+    border-color: transparent
+}
+
+.pagination .page-item.no-link:hover {
+    background-color: #fff !important;
+    border-color: transparent;
+    color: #1d1d1d
+}
+
+.pagination .page-item.disabled {
+    pointer-events: none;
+    color: #e4e4e4
+}
+
+.pagination .page-item.active {
+    background-color: #e4e4e4
+}
+
+.pagination.rounded .page-item {
+    border-radius: .25rem
+}
+
+.pagination.no-gap {
+    margin: 0 0 1rem 0
+}
+
+.pagination.no-gap .page-item {
+    margin: -1px
+}
+
+.pagination.no-gap .no-link {
+    margin: -1px 1px
+}
+
+.pagination.no-gap.rounded .page-item {
+    border-radius: 0
+}
+
+.pagination.no-gap.rounded .page-item:first-child {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem
+}
+
+.pagination.no-gap.rounded .page-item:last-child {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem
+}
+
+.pagination.size-large .page-link {
+    padding: .75rem 1.5rem;
+    font-size: 1.25rem
+}
+
+.pagination.size-small .page-link {
+    padding: .25rem .5rem;
+    font-size: .875rem
+}
