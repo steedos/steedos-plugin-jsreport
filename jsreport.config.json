@@ -1,5 +1,3 @@
 {
-    "logger": {
-        "silent": false
-    }
+    "allowLocalFilesAccess": true
 }
