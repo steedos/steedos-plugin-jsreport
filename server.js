@@ -19,9 +19,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-const port = 3600;
+const port = 5000;
 process.env.PORT = port;
-process.env.ROOT_URL = "http://localhost:3600";
+process.env.ROOT_URL = "http://127.0.0.1:5000";
 
 plugin.init({ app: app });
 
@@ -29,7 +29,7 @@ app.listen(process.env.PORT || 3000, function (error) {
     if (error) {
         console.error(error)
     } else {
-        console.info('==> Listening on port %s. Open up http://localhost:%s/plugins/jsreport/web in your browser.', port, port)
+        console.info('==> Listening on port %s. Open up http://127.0.0.1:%s/plugins/jsreport/web in your browser.', port, port)
     }
 });
 

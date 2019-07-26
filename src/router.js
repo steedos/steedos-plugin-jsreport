@@ -3,14 +3,38 @@ import bodyParser from 'body-parser';
 import { getReportsConfig, getReport, getJsreport, SteedosReport } from './index';
 import { getObject } from './utils';
 import path from 'path';
+import { getSession } from '@steedos/auth';
+import Cookies from 'cookies';
 
-const routes = express();
+const router = express.Router();
 const rootUrl = "/plugins/jsreport";
 
-routes.use(bodyParser.json());
+router.use(bodyParser.json());
+
+async function auth(request, response) {
+  let cookies = new Cookies(request, response);
+  let authToken = request.headers['x-auth-token'] || cookies.get("X-Auth-Token");
+  if(!authToken && request.headers.authorization && request.headers.authorization.split(' ')[0] == 'Bearer') {
+    authToken = request.headers.authorization.split(' ')[1]
+  }
+  let spaceId = (request.params ? request.params.spaceId : null) || String(request.headers['x-space-id']);
+  let user = await getSession(authToken, spaceId);
+  return user;
+}
+
+router.use([`${rootUrl}/web`, `${rootUrl}/api`], function(req, res, next) {
+  auth(req, res).then(function (result) {
+    if (result) {
+      req.user = result;
+      next();
+    } else {
+      res.status(401).send({ status: 'error', message: 'You must be logged in to do this.' });
+    }
+  });
+});
 
 // 报表查看列表界面
-routes.get(`${rootUrl}/web`, async (req, res) => {
+router.get(`${rootUrl}/web`, async (req, res) => {
   let reports = getReportsConfig();
   let jsreport = await getJsreport()
   let resp = await jsreport.render({
@@ -35,7 +59,7 @@ routes.get(`${rootUrl}/web`, async (req, res) => {
 });
 
 // 查看yml配置中的报表详细
-routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
+router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -54,7 +78,7 @@ routes.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
 });
 
 // 查看db中的报表详细
-routes.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
+router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -75,7 +99,7 @@ routes.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
 });
 
 // 导出yml配置中的报表为PDF
-routes.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
+router.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -94,7 +118,7 @@ routes.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
 });
 
 // 导出db中的报表为PDF
-routes.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
+router.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -115,7 +139,7 @@ routes.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
 });
 
 // 导出yml配置中的报表为Excel
-routes.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
+router.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -134,7 +158,7 @@ routes.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
 });
 
 // 导出db中的报表为Excel
-routes.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
+router.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -154,6 +178,6 @@ routes.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
   res.end();
 });
 
-routes.use(rootUrl, express.static(path.resolve(__dirname, "static")));
+router.use(rootUrl, express.static(path.resolve(__dirname, "static")));
 
-export default routes;
+export default router;
