@@ -1,9 +1,3 @@
-// 请求数据的RootUrl及数据所在工作区，用于请求graphql接口获取填报单位名称
-var rootUrl = "http://127.0.0.1:5000";
-var spaceId = "Af8eM6mAHo7wMDqD3";
-// getContractTypes中排它性的id值，该分类指其他分类以外的所有分类
-var otherContractTypeId = "--other--";
-
 //定义一个加法函数，以解决金额相加精度问题
 function add() {
   var args = arguments,//获取所有的参数
@@ -40,6 +34,9 @@ function deci(num, v) {
   var vv = Math.pow(10, v);
   return Math.round(num * vv) / vv;
 }
+
+// getContractTypes中排它性的id值，该分类指其他分类以外的所有分类
+var otherContractTypeId = "--other--";
 
 function getContractTypes() {
   return [{
@@ -117,7 +114,7 @@ function geTotalTags() {
   }]
 }
 
-async function getUserFilterCompany(userFilters, userSession){
+async function getUserFilterCompany(userFilters, userSession, rootUrl){
   let companyId = "";
   let reCompany = null;
   if (userFilters) {
@@ -139,7 +136,12 @@ async function getUserFilterCompany(userFilters, userSession){
       }`,
       variables: null
     };
-    let url = `${rootUrl}/graphql/default/${spaceId}`;
+    if (/\/$/.test(rootUrl)){
+      // 去除url中最后一个斜杆符号
+      rootUrl = rootUrl.substr(0, rootUrl.length - 1);
+    }
+    rootUrl = "http://127.0.0.1:3600";
+    let url = `${rootUrl}/graphql/default/${userSession.spaceId}`;
     try {
       let authToken = userSession ? userSession.authToken : "";
       const res = await fetch(url, {
@@ -262,7 +264,8 @@ async function beforeRender(req, res, done) {
 
   let userFilters = req.data.user_filters;
   let userSession = req.data.user_session;
-  let userFilterCompany = await getUserFilterCompany(userFilters, userSession).catch((error)=>{
+  let rootUrl = req.data.root_url;
+  let userFilterCompany = await getUserFilterCompany(userFilters, userSession, rootUrl).catch((error)=>{
     return { "errors": [{ "message": JSON.stringify(error) }] };
   });
   req.data = Object.assign({}, req.data, {

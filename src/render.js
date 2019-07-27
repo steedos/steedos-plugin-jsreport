@@ -20,7 +20,8 @@ const renderReport = async (report, { recipe = "text", user_filters = [], user_s
             data: data,
             user_filters: user_filters.length ? user_filters : report.filters,
             report: report,
-            user_session: user_session
+            user_session: user_session,
+            root_url: process.env.ROOT_URL
         }
     });
     return resp;
