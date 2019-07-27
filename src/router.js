@@ -60,6 +60,8 @@ router.get(`${rootUrl}/web`, async (req, res) => {
 
 // 查看yml配置中的报表详细
 router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
+  let cookies = new Cookies(req, res);
+  let authToken = req.headers['x-auth-token'] || cookies.get("X-Auth-Token");
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -71,7 +73,7 @@ router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render({ user_filters });
+  let resp = await report.render({ user_filters, auth_token: authToken });
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);
   res.end();

@@ -1,6 +1,6 @@
 import { getJsreport } from './index';
 
-const renderReport = async (report, { recipe = "text", user_filters = [] } = {}) => {
+const renderReport = async (report, { recipe = "text", user_filters = [], auth_token = "" } = {}) => {
     let htmlContent = report.getHtmlContent();
     let scriptContent = report.getScriptContent();
     let helperContent = report.getHelperContent();
@@ -19,7 +19,8 @@ const renderReport = async (report, { recipe = "text", user_filters = [] } = {})
         data: {
             data: data,
             user_filters: user_filters.length ? user_filters : report.filters,
-            report: report
+            report: report,
+            auth_token: auth_token
         }
     });
     return resp;

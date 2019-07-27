@@ -114,7 +114,7 @@ function geTotalTags() {
   }]
 }
 
-async function getUserFilterCompany(userFilters){
+async function getUserFilterCompany(userFilters, authToken){
   let companyId = "";
   let reCompany = null;
   if (userFilters) {
@@ -125,7 +125,6 @@ async function getUserFilterCompany(userFilters){
     });
   }
   if (companyId) {
-    reCompany = "a"
     // 根据companyId取得companyName
     const fetch = require('cross-fetch');
     let fetchParams = {
@@ -139,29 +138,18 @@ async function getUserFilterCompany(userFilters){
     };
     let url = `http://127.0.0.1:5000/graphql/default/Af8eM6mAHo7wMDqD3`;
     try {
-      reCompany = "b"
       const res = await fetch(url, {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'x-auth-token': authToken
         },
         method: 'POST',
         body: JSON.stringify(fetchParams)
       });
-      reCompany = "c"
-      // if (res.status >= 400) {
-      //   reCompany = "status"
-      //   throw new Error("Bad response from server");
-      // }
-      reCompany = "d"
       let reJson = await res.json();
-      if (reJson.errors){
-        reCompany = reJson.errors[0].message;
-      }
-      // reCompany = JSON.stringify(reJson);
-      console.log("reCompany==========", reCompany);
+      reCompany = reJson;
     } catch (err) {
-      reCompany = "err";
-      // reCompany = JSON.stringify(err);
+      reCompany = err;
       console.error(err);
     }
   }
@@ -269,7 +257,10 @@ async function beforeRender(req, res, done) {
   });
 
   let userFilters = req.data.user_filters;
-  let userFilterCompany = await getUserFilterCompany(userFilters);
+  let authToken = req.data.auth_token;
+  let userFilterCompany = await getUserFilterCompany(userFilters, authToken).catch((error)=>{
+    return { "errors": [{ "message": JSON.stringify(error) }] };
+  });
   req.data = Object.assign({}, req.data, {
     report_name: "QHD年度合同统计",
     contractTypes: contractTypes,

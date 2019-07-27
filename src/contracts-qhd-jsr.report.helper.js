@@ -97,5 +97,31 @@ function filteredReportName(userFilters) {
 }
 
 function filteredCompanyName(userFilterCompany) {
-    return userFilterCompany;
+    let result;
+    if (userFilterCompany.errors){
+        // {"errors":[{"message":"You must be logged in to do this."}]}
+        if (userFilterCompany.errors.length){
+            result = userFilterCompany.errors[0];
+            if (result && result.message){
+                result = result.message;
+            }
+            else{
+                result = JSON.stringify(userFilterCompany.errors[0]);
+            }
+        }
+        else{
+            result = JSON.stringify(userFilterCompany.errors);
+        }
+    }
+    else{
+        // { "data": { "organizations": [{ "name": "七公司", "fullname": "股份公司/股份基层单位/七公司" }] } }
+        result = userFilterCompany.data && userFilterCompany.data.organizations && userFilterCompany.data.organizations[0];
+        if (result){
+            result = result.name;
+        }
+        else{
+            result = JSON.stringify(userFilterCompany);
+        }
+    }
+    return result;
 }

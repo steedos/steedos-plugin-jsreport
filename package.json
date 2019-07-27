@@ -16,6 +16,7 @@
     "@steedos/meteor-bundle-runner": "^1.1.7",
     "@steedos/objectql": "^0.1.7",
     "cookies": "0.6.2",
+    "cross-fetch": "^3.0.4",
     "jsreport-chrome-pdf": "^1.5.0",
     "jsreport-core": "^2.5.0",
     "jsreport-handlebars": "^2.0.2",
