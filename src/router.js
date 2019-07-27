@@ -50,6 +50,11 @@ router.get(`${rootUrl}/web`, async (req, res) => {
 
 // 查看yml配置中的报表详细
 router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
+  if (!req.user.spaceId) {
+    res.status(404).send(`<b style="color:red">请传入参数spaceId</b>`);
+    res.end();
+    return;
+  }
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
