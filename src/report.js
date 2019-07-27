@@ -55,7 +55,7 @@ export class SteedosReport {
         return this.helper ? this.helper : getHelperContent(this.toConfig())
     }
 
-    async getData(user_filters) {
+    async getData(user_filters, user_session) {
         if (this.data_source === "graphql" && this.graphql) {
             let schema = getGraphQLSchema()
             let dataResult = await graphql(schema, this.graphql);
@@ -91,7 +91,7 @@ export class SteedosReport {
             let dataResult = await object.find({
                 fields: this.fields,
                 filters: filters
-            });
+            }, user_session);
             let result = {};
             result[`${this.object_name}`] = dataResult;
             return result;
@@ -102,8 +102,8 @@ export class SteedosReport {
         }
     }
 
-    async render({ recipe = "text", user_filters = [], auth_token = "" } = {}) {
-        return await renderReport(this, { recipe, user_filters, auth_token });
+    async render({ recipe = "text", user_filters = [], user_session = {} } = {}) {
+        return await renderReport(this, { recipe, user_filters, user_session });
     }
 }
 
