@@ -1,6 +1,6 @@
 {
   "name": "@steedos/plugin-jsreport",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Steedos Jsreport报表插件",
   "main": "lib/index",
   "files": [
@@ -15,7 +15,7 @@
     "@steedos/auth": "^1.0.14",
     "@steedos/core": "^1.2.1",
     "@steedos/meteor-bundle-runner": "^1.1.7",
-    "@steedos/objectql": "^0.1.7",
+    "@steedos/objectql": "^0.1.8",
     "cookies": "0.6.2",
     "cross-fetch": "^3.0.4",
     "jsreport-chrome-pdf": "^1.5.0",
@@ -47,7 +47,7 @@
   },
   "resolutions": {
     "graphql": "^14.1.1",
-    "@steedos/objectql": "^0.1.7",
+    "@steedos/objectql": "^0.1.8",
     "@steedos/core": "^1.2.1",
     "@steedos/auth": "^1.0.12"
   }
