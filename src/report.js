@@ -91,7 +91,7 @@ export class SteedosReport {
             let dataResult = await object.find({
                 fields: this.fields,
                 filters: filters
-            }, user_session);
+            }, user_session.spaceId ? user_session : null);
             let result = {};
             result[`${this.object_name}`] = dataResult;
             return result;

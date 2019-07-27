@@ -11,13 +11,15 @@ const rootUrl = "/plugins/jsreport";
 router.use(bodyParser.json());
 
 router.use([`${rootUrl}/web`, `${rootUrl}/api`], function(req, res, next) {
-  auth(req, res).then(function (result) {
+  auth(req, res).then((result)=> {
     if (result) {
       req.user = result;
       next();
     } else {
       res.status(401).send({ status: 'error', message: 'You must be logged in to do this.' });
     }
+  }).catch(()=>{
+    res.status(401).send({ status: 'error', message: 'You are not logged in or the spaceId is not exist.' });
   });
 });
 
