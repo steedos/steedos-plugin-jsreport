@@ -13,6 +13,10 @@ router.use(bodyParser.json());
 router.use([`${rootUrl}/web`, `${rootUrl}/api`], function(req, res, next) {
   auth(req, res).then((result)=> {
     if (result) {
+      if (!result.spaceId) {
+        res.status(401).send({ status: 'error', message: 'You must pass the params space_id.' });
+        return;
+      }
       req.user = result;
       next();
     } else {
@@ -26,13 +30,13 @@ router.use([`${rootUrl}/web`, `${rootUrl}/api`], function(req, res, next) {
 // 报表查看列表界面
 router.get(`${rootUrl}/web`, async (req, res) => {
   let reports = getReportsConfig();
-  let jsreport = await getJsreport()
+  let jsreport = await getJsreport();
   let resp = await jsreport.render({
     template: {
       content: `
         {{#each reports}}
           <div className="report-list-item">
-            <a href='{{../rootUrl}}/web/viewer/{{_id}}'>{{name}}</a>
+            <a href= '{{../rootUrl}}/web/viewer/{{_id}}?space_id={{../spaceId}}'>{{name}}</a>
           </div>
         {{/each}}
       `,
@@ -41,7 +45,8 @@ router.get(`${rootUrl}/web`, async (req, res) => {
     },
     data: {
       reports: reports,
-      rootUrl: rootUrl
+      rootUrl: rootUrl,
+      spaceId: req.user.spaceId
     }
   });
   res.send(resp.content.toString());
@@ -50,11 +55,6 @@ router.get(`${rootUrl}/web`, async (req, res) => {
 
 // 查看yml配置中的报表详细
 router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
-  if (!req.user.spaceId) {
-    res.status(404).send(`<b style="color:red">请传入参数spaceId</b>`);
-    res.end();
-    return;
-  }
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
@@ -87,7 +87,7 @@ router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render({ user_filters });
+  let resp = await report.render({ user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -106,7 +106,7 @@ router.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render({ recipe: 'chrome-pdf', user_filters });
+  let resp = await report.render({ recipe: 'chrome-pdf', user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -127,7 +127,7 @@ router.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render({ recipe: 'chrome-pdf', user_filters });
+  let resp = await report.render({ recipe: 'chrome-pdf', user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -146,7 +146,7 @@ router.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters });
+  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -167,7 +167,7 @@ router.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters });
+  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
   res.end();
