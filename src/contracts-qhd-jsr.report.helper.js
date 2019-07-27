@@ -97,6 +97,9 @@ function filteredReportName(userFilters) {
 }
 
 function filteredCompanyName(userFilterCompany) {
+    if (!userFilterCompany){
+        return "未设置";
+    }
     let result;
     if (userFilterCompany.errors){
         // {"errors":[{"message":"You must be logged in to do this."}]}
