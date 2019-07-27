@@ -12,6 +12,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@steedos/auth": "^1.0.12",
     "@steedos/core": "^1.2.1",
     "@steedos/meteor-bundle-runner": "^1.1.7",
     "@steedos/objectql": "^0.1.7",
@@ -48,6 +49,6 @@
     "graphql": "^14.1.1",
     "@steedos/objectql": "^0.1.7",
     "@steedos/core": "^1.2.1",
-    "@steedos/auth": "^1.0.8"
+    "@steedos/auth": "^1.0.12"
   }
 }

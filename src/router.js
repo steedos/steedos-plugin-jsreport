@@ -3,24 +3,12 @@ import bodyParser from 'body-parser';
 import { getReportsConfig, getReport, getJsreport, SteedosReport } from './index';
 import { getObject } from './utils';
 import path from 'path';
-import { getSession } from '@steedos/auth';
-import Cookies from 'cookies';
+import { auth } from '@steedos/auth';
 
 const router = express.Router();
 const rootUrl = "/plugins/jsreport";
 
 router.use(bodyParser.json());
-
-async function auth(request, response) {
-  let cookies = new Cookies(request, response);
-  let authToken = request.headers['x-auth-token'] || cookies.get("X-Auth-Token");
-  if(!authToken && request.headers.authorization && request.headers.authorization.split(' ')[0] == 'Bearer') {
-    authToken = request.headers.authorization.split(' ')[1]
-  }
-  let spaceId = (request.params ? request.params.spaceId : null) || request.headers['x-space-id'];
-  let user = await getSession(authToken, spaceId);
-  return user;
-}
 
 router.use([`${rootUrl}/web`, `${rootUrl}/api`], function(req, res, next) {
   auth(req, res).then(function (result) {
@@ -60,8 +48,7 @@ router.get(`${rootUrl}/web`, async (req, res) => {
 
 // 查看yml配置中的报表详细
 router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
-  let cookies = new Cookies(req, res);
-  let authToken = req.headers['x-auth-token'] || cookies.get("X-Auth-Token");
+  let authToken = req.user.authToken;
   let user_filters = req.query.user_filters;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
