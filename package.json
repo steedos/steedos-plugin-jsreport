@@ -1,6 +1,6 @@
 {
   "name": "@steedos/plugin-jsreport",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Steedos Jsreport报表插件",
   "main": "lib/index",
   "files": [
@@ -13,19 +13,14 @@
   },
   "dependencies": {
     "@steedos/auth": "^1.0.14",
-    "@steedos/core": "^1.2.1",
-    "@steedos/meteor-bundle-runner": "^1.1.7",
     "@steedos/objectql": "^0.1.8",
-    "cookies": "0.6.2",
-    "cross-fetch": "^3.0.4",
     "jsreport-chrome-pdf": "^1.5.0",
     "jsreport-core": "^2.5.0",
     "jsreport-handlebars": "^2.0.2",
     "jsreport-html-to-xlsx": "^2.3.1",
     "jsreport-scripts": "^2.1.0",
     "jsreport-text": "^2.0.0",
-    "puppeteer": "^1.18.1",
-    "steedos-server": "^1.3.1"
+    "puppeteer": "^1.18.1"
   },
   "scripts": {
     "start": "npm run compile && node start.js",
@@ -43,12 +38,11 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.5.4",
-    "css-modules-require-hook": "^4.2.3"
-  },
-  "resolutions": {
-    "graphql": "^14.1.1",
-    "@steedos/objectql": "^0.1.8",
     "@steedos/core": "^1.2.1",
-    "@steedos/auth": "^1.0.12"
+    "@steedos/meteor-bundle-runner": "^1.1.7",
+    "cookies": "0.6.2",
+    "cross-fetch": "^3.0.4",
+    "css-modules-require-hook": "^4.2.3",
+    "steedos-server": "^1.3.1"
   }
 }

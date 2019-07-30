@@ -1,4 +1,13 @@
-0.2.0 / 2019-08-xx
+0.1.0 / 2019-08-xx
+===================
+
+  * 尝试解决在creator项目中引用后，运行项目时报错
+  ```
+  While building the application:
+  D:\GitHub\creator_dev\project-tap.i18n: Can't load project-tap.i18n in a package: null
+  ```
+
+0.0.8 / 2019-07-30
 ===================
 
   * 识别url中space_id参数查询数据
@@ -11,5 +20,5 @@
   * 脚本中支持req.data.report取得当前报表信息
   * 脚本中支持req.data.root_url取得当前站点ROOT_URL
 
-0.1.0 / 2019-07-27
+0.0.7 / 2019-07-27
 ===================
