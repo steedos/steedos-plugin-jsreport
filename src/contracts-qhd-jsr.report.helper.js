@@ -79,42 +79,57 @@ function deci(num, v) {
     return Math.round(num * vv) / vv;
 }
 
-function filteredReportName(userFilters) {
-    var reName = "QHD";
-    var signedDateName = "";
+function filteredReportName(userFilters, userFilterCompany) {
+    let reName = "QHD";
+    let companyName = filteredCompanyName(userFilterCompany);
+    reName += companyName;
+    let filteredStr = "";
     if (userFilters) {
         userFilters.forEach(function (item) {
             if (item.field === "signed_date") {
                 let start = item.value[0];
                 let end = item.value[1];
                 if (start && end){
-                    signedDateName = new Date(start).toLocaleDateString() + "至" + new Date(end).toLocaleDateString();
+                    filteredStr = " " + new Date(start).toLocaleDateString() + "至" + new Date(end).toLocaleDateString() + " ";
                 }
                 else if(start){
-                    signedDateName = new Date(start).toLocaleDateString() + "至今";
+                    filteredStr = " " + new Date(start).toLocaleDateString() + "至今 ";
                 }
                 else if (end) {
-                    signedDateName = new Date(end).toLocaleDateString() + "之前";
+                    filteredStr = " " + new Date(end).toLocaleDateString() + "之前 ";
                 }
-                else{
-                    signedDateName = "全部";
+                else {
+                    filteredStr = " 全部 ";
+                }
+            }
+            else if (item.field === "bop"){
+                if (item.value && item.value.length){
+                    filteredStr += item.value.join(",") + "类";
                 }
             }
         });
-        if (signedDateName) {
-            reName += signedDateName;
+        if (filteredStr) {
+            reName += filteredStr;
         }
     }
     reName += "合同统计报表";
     return reName;
 }
 
-function filteredCompanyName(userFilterCompany) {
+function filteredCompanyName(userFilterCompany, isNeedToShowEmpty) {
     if (!userFilterCompany){
-        return "未设置";
+        if (isNeedToShowEmpty) {
+            return "未设置";
+        }
+        else{
+            return "";
+        }
     }
     let result;
     if (userFilterCompany.errors){
+        if (!isNeedToShowEmpty) {
+            return "";
+        }
         // {"errors":[{"message":"You must be logged in to do this."}]}
         if (userFilterCompany.errors.length){
             result = userFilterCompany.errors[0];
@@ -131,11 +146,22 @@ function filteredCompanyName(userFilterCompany) {
     }
     else{
         // { "data": { "organizations": [{ "name": "七公司", "fullname": "股份公司/股份基层单位/七公司" }] } }
-        result = userFilterCompany.data && userFilterCompany.data.organizations && userFilterCompany.data.organizations[0];
+        result = userFilterCompany.data && userFilterCompany.data.organizations && userFilterCompany.data.organizations;
         if (result){
-            result = result.name;
+            if (result.length){
+                result = result[0].name;
+            }
+            else {
+                if (!isNeedToShowEmpty) {
+                    return "";
+                }
+                result = `未找到指定ID值的公司`;
+            }
         }
-        else{
+        else {
+            if (!isNeedToShowEmpty) {
+                return "";
+            }
             result = JSON.stringify(userFilterCompany);
         }
     }

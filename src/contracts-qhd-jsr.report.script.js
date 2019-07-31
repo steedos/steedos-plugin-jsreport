@@ -129,7 +129,7 @@ async function getUserFilterCompany(userFilters, userSession, rootUrl){
     const fetch = require('cross-fetch');
     let fetchParams = {
       query: `query {
-        organizations(filters:"_id eq 'tXZobZ2mngswCRNbL'") {
+        organizations(filters:"_id eq '${companyId}'") {
           name
           fullname
         }
