@@ -85,7 +85,20 @@ function filteredReportName(userFilters) {
     if (userFilters) {
         userFilters.forEach(function (item) {
             if (item.field === "signed_date") {
-                signedDateName = new Date(item.value[0]).toLocaleDateString() + "至" + new Date(item.value[1]).toLocaleDateString();
+                let start = item.value[0];
+                let end = item.value[1];
+                if (start && end){
+                    signedDateName = new Date(start).toLocaleDateString() + "至" + new Date(end).toLocaleDateString();
+                }
+                else if(start){
+                    signedDateName = new Date(start).toLocaleDateString() + "至今";
+                }
+                else if (end) {
+                    signedDateName = new Date(end).toLocaleDateString() + "之前";
+                }
+                else{
+                    signedDateName = "全部";
+                }
             }
         });
         if (signedDateName) {
