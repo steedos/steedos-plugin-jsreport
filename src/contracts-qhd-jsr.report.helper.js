@@ -86,7 +86,7 @@ function filteredReportName(userFilters, userFilterCompany) {
     let filteredStr = "";
     if (userFilters) {
         userFilters.forEach(function (item) {
-            if (item.field === "signed_date") {
+            if (item.field === "signed_date" && item.value && item.value.length) {
                 let start = item.value[0];
                 let end = item.value[1];
                 if (start && end){
