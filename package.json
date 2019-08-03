@@ -1,6 +1,6 @@
 {
   "name": "@steedos/plugin-jsreport",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Steedos Jsreport报表插件",
   "main": "lib/index",
   "files": [
@@ -21,7 +21,7 @@
     "jsreport-html-to-xlsx": "^2.3.1",
     "jsreport-scripts": "^2.1.0",
     "jsreport-text": "^2.0.0",
-    "puppeteer": "^1.18.1"
+    "puppeteer": "1.17.0"
   },
   "scripts": {
     "start": "npm run compile && node start.js",

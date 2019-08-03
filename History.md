@@ -1,6 +1,12 @@
 0.1.0 / 2019-08-xx
 ===================
 
+  * 尝试将puppeteer降到1.17.0解决在docker中转pdf timeout的问题
+
+
+0.0.9 / 2019-08-03
+===================
+
   * 尝试解决在creator项目中引用后，运行项目时报错
   ```
   While building the application:
