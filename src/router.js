@@ -57,7 +57,7 @@ router.get(`${rootUrl}/web`, async (req, res) => {
 router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
-    user_filters = decodeURI(user_filters);
+    user_filters = eval(decodeURI(user_filters));
   }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -97,7 +97,7 @@ router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
 router.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
-    user_filters = decodeURI(user_filters);
+    user_filters = eval(decodeURI(user_filters));
   }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -137,7 +137,7 @@ router.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
 router.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
   let user_filters = req.query.user_filters;
   if (user_filters) {
-    user_filters = decodeURI(user_filters);
+    user_filters = eval(decodeURI(user_filters));
   }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
