@@ -9,17 +9,21 @@ fields :
   - amount
   - signed_date
   - created
+filters:
+  - 
+    - 
+      - company_id
+      - =
+      - tXZobZ2mngswCRNbL
+    - 
+      - created
+      - between
+      - 
+        - 2019-05-25T06:44:00.000Z
+        - 2019-05-25T06:45:00.000Z
+    - 
+      - bop
+      - =
+      - 
+        - 收入
 
-graphql: |
-  query {
-    contracts(filters:"company_id eq 'tXZobZ2mngswCRNbL'") {
-      name
-      amount
-      contract_type {
-        name
-        owner{
-          name
-        }
-      }
-    }
-  }
