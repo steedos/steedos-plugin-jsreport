@@ -1,0 +1,25 @@
+
+_id : contracts-utc
+name: 合同统计
+report_type: jsreport
+data_source : odata
+object_name : contracts
+fields : 
+  - name
+  - amount
+  - signed_date
+  - created
+
+graphql: |
+  query {
+    contracts(filters:"company_id eq 'tXZobZ2mngswCRNbL'") {
+      name
+      amount
+      contract_type {
+        name
+        owner{
+          name
+        }
+      }
+    }
+  }
