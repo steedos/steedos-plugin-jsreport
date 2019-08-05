@@ -1,6 +1,6 @@
 
-_id : contracts-utc
-name: 合同统计-Datetime类型时区问题
+_id : contracts-utc-date
+name: 合同统计-Date类型时区问题
 report_type: jsreport
 data_source : odata
 object_name : contracts
@@ -17,14 +17,9 @@ filters:
       - =
       - tXZobZ2mngswCRNbL
     - 
-      - created
+      - signed_date
       - between
       - 
-        - 2019-05-25T06:44:00.000Z
-        - 2019-05-25T06:45:00.000Z
-    - 
-      - bop
-      - =
-      - 
-        - 收入
+        - 2014-01-20T00:00:00Z
+        - 2014-01-20T23:59:59Z
 
