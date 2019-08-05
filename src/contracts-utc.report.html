@@ -40,6 +40,9 @@
                 <td>
                     创建时间
                 </td>
+                <td>
+                    修改时间
+                </td>
             </tr>
             {{#each data.contracts}}
                 <tr class="item">
@@ -50,10 +53,13 @@
                         {{amount}}
                     </td>
                     <td>
-                        {{signed_date}}
+                        {{localeDateString signed_date}}
                     </td>
                     <td>
-                        {{created}}
+                        {{localeDateTimeString created}}
+                    </td>
+                    <td>
+                        {{localeDateTimeString modified}}
                     </td>
                 </tr>
             {{/each}}

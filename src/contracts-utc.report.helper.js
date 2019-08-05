@@ -24,3 +24,11 @@ function userFiltersQuery(user_filters) {
         return "";
     }
 }
+
+function localeDateString(date) {
+    return date.toLocaleDateString()
+}
+
+function localeDateTimeString(date) {
+    return date.toLocaleString()
+}

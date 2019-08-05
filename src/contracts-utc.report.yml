@@ -9,6 +9,7 @@ fields :
   - amount
   - signed_date
   - created
+  - modified
 filters:
   - 
     - 
