@@ -15,3 +15,12 @@ say hello world loudly: {{{toUpperCase "hello world"}}}
 function now() {
     return new Date().toLocaleDateString()
 }
+
+function userFiltersQuery(user_filters) {
+    if (user_filters){
+        return encodeURI(JSON.stringify(user_filters));
+    }
+    else{
+        return "";
+    }
+}

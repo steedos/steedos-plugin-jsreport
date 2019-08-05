@@ -17,11 +17,11 @@
         </h1>
     </div>
     <div>
-        <a href="/plugins/jsreport/api/report/{{report._id}}/excel?space_id={{user_session.spaceId}}" target="_blank">
+        <a href="/plugins/jsreport/api/report/{{report._id}}/excel?space_id={{user_session.spaceId}}&user_filters={{userFiltersQuery user_filters}}" target="_blank">
             导出为EXCEL
         </a>
     </div><div>
-        <a href="/plugins/jsreport/api/report/{{report._id}}/pdf?space_id={{user_session.spaceId}}" target="_blank">
+        <a href="/plugins/jsreport/api/report/{{report._id}}/pdf?space_id={{user_session.spaceId}}&user_filters={{userFiltersQuery user_filters}}" target="_blank">
             导出为PDF
         </a>
     </div>
