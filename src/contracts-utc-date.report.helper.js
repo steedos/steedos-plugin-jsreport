@@ -25,10 +25,12 @@ function userFiltersQuery(user_filters) {
     }
 }
 
-function localeDateString(date) {
-    return date.toLocaleDateString()
+function dateString(date) {
+    let moment = require("moment");
+    return moment.utc(date.getTime()).format('YYYY-MM-DD');
 }
 
-function localeDateTimeString(date) {
-    return date.toLocaleString()
+function dateTimeString(date) {
+    let moment = require("moment");
+    return moment(date.getTime()).format('YYYY-MM-DD H:mm');
 }
