@@ -23,8 +23,8 @@ const initHtmls = (reports) => {
         }
         else{
             htmlContent = getBlankHtmlContent(report);
+            saveReportToHtmlFile(report.html_file, htmlContent);
         }
-        saveReportToHtmlFile(report.html_file, htmlContent);
     });
 }
 

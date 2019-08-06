@@ -30,8 +30,8 @@ const initHelpers = (reports) => {
         }
         else{
             helperContent = getBlankHelperContent(report);
+            saveReportToHelperFile(report.helper_file, helperContent);
         }
-        saveReportToHelperFile(report.helper_file, helperContent);
     });
 }
 

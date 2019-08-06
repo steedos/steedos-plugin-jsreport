@@ -55,8 +55,8 @@ const initScripts = (reports) => {
         }
         else{
             scriptContent = getBlankScriptContent(report);
+            saveReportToScriptFile(report.script_file, scriptContent);
         }
-        saveReportToScriptFile(report.script_file, scriptContent);
     });
 }
 
