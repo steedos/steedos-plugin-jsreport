@@ -80,6 +80,7 @@ function deci(num, v) {
 }
 
 function filteredReportName(userFilters, userFilterCompany) {
+    let moment = require("moment");
     let reName = "QHD";
     let companyName = filteredCompanyName(userFilterCompany);
     reName += companyName;
@@ -93,14 +94,15 @@ function filteredReportName(userFilters, userFilterCompany) {
                 }
                 let start = item.value[0];
                 let end = item.value[1];
+                // moment.utc(end).format('YYYY-MM-DD');
                 if (start && end){
-                    filteredStr = " " + new Date(start).toLocaleDateString() + "至" + new Date(end).toLocaleDateString() + " ";
+                    filteredStr = " " + moment.utc(start).format('YYYY-MM-DD') + "至" + moment.utc(end).format('YYYY-MM-DD') + " ";
                 }
                 else if(start){
-                    filteredStr = " " + new Date(start).toLocaleDateString() + "至今 ";
+                    filteredStr = " " + moment.utc(start).format('YYYY-MM-DD') + "至今 ";
                 }
                 else if (end) {
-                    filteredStr = " " + new Date(end).toLocaleDateString() + "之前 ";
+                    filteredStr = " " + moment.utc(end).format('YYYY-MM-DD') + "之前 ";
                 }
                 else {
                     filteredStr = " 全部 ";
