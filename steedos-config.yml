@@ -1,6 +1,7 @@
 env:
   PORT: 3600
   ROOT_URL: http://127.0.0.1:3600/
+  ROOT_URL_INTRANET: http://127.0.0.1:3600/
 datasources:
   default:
     connection:
