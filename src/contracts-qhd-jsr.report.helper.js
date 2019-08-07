@@ -85,8 +85,12 @@ function filteredReportName(userFilters, userFilterCompany) {
     reName += companyName;
     let filteredStr = "";
     if (userFilters) {
+        let getBetweenTimeBuiltinValueItem = require("@steedos/filters").getBetweenTimeBuiltinValueItem;
         userFilters.forEach(function (item) {
             if (item.field === "signed_date" && item.value && item.value.length) {
+                if (typeof item.value === "string"){
+                    item.value = getBetweenTimeBuiltinValueItem(item.value).values;
+                }
                 let start = item.value[0];
                 let end = item.value[1];
                 if (start && end){
