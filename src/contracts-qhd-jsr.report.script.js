@@ -263,7 +263,8 @@ async function beforeRender(req, res, done) {
 
   let userFilters = req.data.user_filters;
   let userSession = req.data.user_session;
-  let rootUrl = req.data.root_url;
+  // let rootUrl = req.data.root_url;
+  let rootUrl = req.data.root_url_intranet;
   let userFilterCompany = await getUserFilterCompany(userFilters, userSession, rootUrl).catch((error)=>{
     return { "errors": [{ "message": JSON.stringify(error) }] };
   });

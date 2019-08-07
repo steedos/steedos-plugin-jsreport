@@ -21,7 +21,8 @@ const renderReport = async (report, { recipe = "text", user_filters = [], user_s
             user_filters: user_filters.length ? user_filters : report.filters,
             report: report,
             user_session: user_session,
-            root_url: process.env.ROOT_URL
+            root_url: process.env.ROOT_URL,
+            root_url_intranet: process.env.ROOT_URL_INTRANET
         }
     });
     return resp;
