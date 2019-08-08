@@ -14,5 +14,9 @@
     ],
     "presets": [
         "@babel/env"
+    ],
+    "ignore": [
+        "./src/*.report.helper.js",
+        "./src/*.report.script.js"
     ]
 }
