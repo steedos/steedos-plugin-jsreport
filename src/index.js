@@ -2,7 +2,7 @@ import _ from 'underscore';
 import { default as SteedosPlugin } from './plugin';
 const plugin = new SteedosPlugin();
 
-export function initPlugin(context) {
+export function init(context) {
     return plugin.init(context);
 }
 
@@ -25,5 +25,4 @@ export async function getJsreport() {
 export { SteedosReport } from './report';
 export { default as routes } from './router';
 export * from './html';
-export { initPlugin as init };
 export default plugin;
