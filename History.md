@@ -1,3 +1,8 @@
+0.1.0 / 2019-08-08
+===================
+
+  * 使用pluginContext = { app, settings: Meteor.settings }来获取process.env.ROOT_URL等参数，方便后续自动扩展
+  * 引用最新的@steedos/filters包，让this_year这样的内置范围支持utcOffset参数使用不同时区
 0.0.11 / 2019-08-07
 ===================
 
