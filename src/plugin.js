@@ -12,7 +12,8 @@ import jsreportCore from 'jsreport-core';
 
 export default class SteedosPlugin { 
     _reports = {}
-    _jsreport = null;
+    _jsreport = null
+    _settings = {}
 
     constructor(config) {
         if (config && config.reportFiles){
@@ -20,7 +21,7 @@ export default class SteedosPlugin {
         }
     }
 
-    init({ app }) {
+    init({ app, settings }) {
         let reportsDir = appRoot.resolve('/src');
         this.useReportFiles([reportsDir]);
         initHtmls(this.getReports());
@@ -28,6 +29,13 @@ export default class SteedosPlugin {
         initHelpers(this.getReports());
 
         app.use(routes);
+        if (settings){
+            this._settings = settings;
+        }
+    }
+
+    get settings() {
+        return this._settings;
     }
 
     async getJsreport() {
