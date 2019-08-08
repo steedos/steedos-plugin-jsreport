@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@steedos/auth": "^1.0.14",
-    "@steedos/filters": "^0.0.11",
+    "@steedos/filters": "^0.0.12",
     "@steedos/objectql": "^0.2.2",
     "jsreport-chrome-pdf": "^1.5.0",
     "jsreport-core": "^2.5.0",
