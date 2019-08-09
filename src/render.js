@@ -21,6 +21,7 @@ const renderReport = async (report, { recipe = "text", user_filters = [], user_s
             user_filters: user_filters.length ? user_filters : report.filters,
             report: report,
             user_session: user_session,
+            env: process.env,
             settings: plugin.settings
         }
     });
