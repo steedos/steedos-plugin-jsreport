@@ -3,28 +3,25 @@ import bodyParser from 'body-parser';
 import { getReportsConfig, getReport, getJsreport, SteedosReport } from './index';
 import { getObject } from './utils';
 import path from 'path';
-import { auth } from '@steedos/auth';
+import { setRequestUser } from '@steedos/auth';
 
 const router = express.Router();
 const rootUrl = "/plugins/jsreport";
 
 router.use(bodyParser.json());
 
-router.use([`${rootUrl}/web`, `${rootUrl}/api`], function(req, res, next) {
-  auth(req, res).then((result)=> {
-    if (result) {
-      if (!result.spaceId) {
-        res.status(401).send({ status: 'error', message: 'You must pass the params space_id.' });
-        return;
-      }
-      req.user = result;
-      next();
-    } else {
-      res.status(401).send({ status: 'error', message: 'You must be logged in to do this.' });
+router.use([`${rootUrl}/web`, `${rootUrl}/api`], setRequestUser);
+
+router.use([`${rootUrl}/web`, `${rootUrl}/api`], function (req, res, next) {
+  if (req.user) {
+    if (!req.user.spaceId) {
+      res.status(401).send({ status: 'error', message: 'You must pass the params space_id.' });
+      return;
     }
-  }).catch(()=>{
-    res.status(401).send({ status: 'error', message: 'You are not logged in or the spaceId is not exist.' });
-  });
+    next();
+  } else {
+    res.status(401).send({ status: 'error', message: 'You must be logged in to do this.' });
+  }
 });
 
 // 报表查看列表界面
@@ -61,7 +58,7 @@ router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
   }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
-  if (!report){
+  if (!report) {
     res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
     res.end();
     return;
