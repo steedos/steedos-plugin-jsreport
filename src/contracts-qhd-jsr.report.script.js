@@ -143,12 +143,10 @@ async function getUserFilterCompany(userFilters, userSession, rootUrl){
     let url = `${rootUrl}/graphql/default/${userSession.spaceId}`;
     try {
       let authToken = userSession ? userSession.authToken : "";
-      let spaceId = userSession ? userSession.spaceId : "";
-      let authorization = `Bearer ${spaceId},${authToken}`;
       const res = await fetch(url, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': authorization
+          'x-auth-token': authToken
         },
         method: 'POST',
         body: JSON.stringify(fetchParams)
