@@ -140,13 +140,13 @@ async function getUserFilterCompany(userFilters, userSession, rootUrl){
       // 去除url中最后一个斜杆符号
       rootUrl = rootUrl.substr(0, rootUrl.length - 1);
     }
-    let url = `${rootUrl}/graphql/default/${userSession.spaceId}`;
+    let url = `${rootUrl}/graphql/default`;
     try {
-      let authToken = userSession ? userSession.authToken : "";
+      let authorization = `Bearer ${userSession.spaceId},${userSession.authToken}`;
       const res = await fetch(url, {
         headers: {
           'Content-Type': 'application/json',
-          'x-auth-token': authToken
+          'Authorization': authorization
         },
         method: 'POST',
         body: JSON.stringify(fetchParams)
