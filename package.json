@@ -1,6 +1,6 @@
 {
   "name": "@steedos/plugin-jsreport",
-  "version": "1.6.2",
+  "version": "1.6.2-patch.1",
   "description": "Steedos Jsreport报表插件",
   "main": "lib/index",
   "files": [
@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.4",
-    "jsreport-chrome-pdf": "^1.5.0",
-    "jsreport-core": "^2.5.0",
-    "jsreport-handlebars": "^2.0.2",
-    "jsreport-html-to-xlsx": "^2.3.1",
-    "jsreport-scripts": "^2.1.0",
-    "jsreport-text": "^2.0.0",
+    "jsreport-chrome-pdf": "1.5.0",
+    "jsreport-core": "2.5.0",
+    "jsreport-handlebars": "2.0.2",
+    "jsreport-html-to-xlsx": "2.3.1",
+    "jsreport-scripts": "2.1.0",
+    "jsreport-text": "2.0.0",
     "puppeteer": "1.17.0"
   },
   "scripts": {
