@@ -38,17 +38,18 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.5.4",
     "@babel/register": "^7.4.4",
-    "@steedos/auth": "^1.6.0-alpha.0",
-    "@steedos/core": "^1.6.0-alpha.0",
-    "@steedos/filters": "^1.6.0-alpha.0",
-    "@steedos/objectql": "^1.6.0-alpha.0",
-    "@steedos/standard-objects": "^1.6.0-alpha.0",
-    "@steedos/meteor-bundle-runner": "^1.6.1",
+    "@steedos/auth": "^1.6.2",
+    "@steedos/core": "^1.6.2",
+    "@steedos/filters": "^1.6.2",
+    "@steedos/objectql": "^1.6.2",
+    "@steedos/standard-objects": "^1.6.2",
+    "@steedos/meteor-bundle-runner": "^1.6.2",
+    "@steedos/app-contracts": "^1.6.2",
     "cookies": "0.6.2",
     "cross-fetch": "^3.0.4",
     "css-modules-require-hook": "^4.2.3",
     "moment": "^2.24.0",
     "nodemon": "^1.19.1",
-    "steedos-server": "^1.6.1"
+    "steedos-server": "^1.6.2"
   }
 }
