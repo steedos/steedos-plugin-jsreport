@@ -1,8 +1,9 @@
 import _ from 'underscore';
 import path from 'path';
+const globby = require("globby");
+import { getBaseDirectory } from "@steedos/objectql";
 import { loadReports } from './utils';
 import { SteedosReport } from './report';
-import appRoot from 'app-root-path';
 import { initHtmls } from './html';
 import { initScripts } from './script';
 import { initHelpers } from './helper';
@@ -22,7 +23,7 @@ export default class SteedosPlugin {
     }
 
     init({ app, settings }) {
-        let reportsDir = appRoot.resolve('/src');
+        let reportsDir = "./src/**";
         this.useReportFiles([reportsDir]);
         initHtmls(this.getReports());
         initScripts(this.getReports());
@@ -79,12 +80,12 @@ export default class SteedosPlugin {
     }
 
     useReportFile(filePath) {
-        let reportJsons = loadReports(filePath)
+        if (!path.isAbsolute(filePath)) {
+            filePath = path.resolve(getBaseDirectory(), filePath);
+        }
+        let reportJsons = loadReports(filePath);
         _.each(reportJsons, (json) => {
             if (json.report_type === "jsreport") {
-                json.html_file = path.join(filePath, `${json._id}.report.html`)
-                json.script_file = path.join(filePath, `${json._id}.report.script.js`)
-                json.helper_file = path.join(filePath, `${json._id}.report.helper.js`)
                 this.addReport(json._id, json)
             }
         })

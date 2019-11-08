@@ -24,6 +24,11 @@ const loadReports = (filePath) => {
     const matchedPaths = globby.sync(filePatten);
     _.each(matchedPaths, (matchedPath) => {
         let json = loadFile(matchedPath);
+        if (json.report_type === "jsreport") {
+            json.html_file = matchedPath.replace(/\.report\.yml$/,'.report.html');
+            json.script_file = matchedPath.replace(/\.report\.yml$/, '.report.script.js');
+            json.helper_file = matchedPath.replace(/\.report\.yml$/, '.report.helper.js');
+        }
         results.push(json);
     });
     return results;
