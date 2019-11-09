@@ -55,6 +55,10 @@ export class SteedosReport {
         return this.helper ? this.helper : getHelperContent(this.toConfig())
     }
 
+    getObjectConfig() {
+        return getObject(this.object_name).toConfig();
+    }
+
     async getData(user_filters, user_session) {
         if (this.data_source === "graphql" && this.graphql) {
             let schema = getGraphQLSchema()
