@@ -63,6 +63,12 @@ router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
     res.end();
     return;
   }
+  let missingRequiredFilters = report.getMissingRequiredFilters(user_filters)
+  if (missingRequiredFilters && missingRequiredFilters.length) {
+    res.status(500).send(`<b style="color:red">缺少过滤条件：${JSON.stringify(missingRequiredFilters)}</b>`);
+    res.end();
+    return;
+  }
   let resp = await report.render({ user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);
@@ -80,6 +86,12 @@ router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
   let reportConfig = await reportObject.findOne(report_id);
   if (!reportConfig) {
     res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
+  let missingRequiredFilters = report.getMissingRequiredFilters(user_filters)
+  if (missingRequiredFilters && missingRequiredFilters.length) {
+    res.status(500).send(`<b style="color:red">缺少过滤条件：${JSON.stringify(missingRequiredFilters)}</b>`);
     res.end();
     return;
   }
@@ -103,6 +115,12 @@ router.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
     res.end();
     return;
   }
+  let missingRequiredFilters = report.getMissingRequiredFilters(user_filters)
+  if (missingRequiredFilters && missingRequiredFilters.length) {
+    res.status(500).send(`<b style="color:red">缺少过滤条件：${JSON.stringify(missingRequiredFilters)}</b>`);
+    res.end();
+    return;
+  }
   let resp = await report.render({ recipe: 'chrome-pdf', user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
@@ -120,6 +138,12 @@ router.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
   let reportConfig = await reportObject.findOne(report_id);
   if (!reportConfig) {
     res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
+  let missingRequiredFilters = report.getMissingRequiredFilters(user_filters)
+  if (missingRequiredFilters && missingRequiredFilters.length) {
+    res.status(500).send(`<b style="color:red">缺少过滤条件：${JSON.stringify(missingRequiredFilters)}</b>`);
     res.end();
     return;
   }
@@ -143,6 +167,12 @@ router.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
     res.end();
     return;
   }
+  let missingRequiredFilters = report.getMissingRequiredFilters(user_filters)
+  if (missingRequiredFilters && missingRequiredFilters.length) {
+    res.status(500).send(`<b style="color:red">缺少过滤条件：${JSON.stringify(missingRequiredFilters)}</b>`);
+    res.end();
+    return;
+  }
   let resp = await report.render({ recipe: 'html-to-xlsx', user_filters, user_session: req.user });
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
@@ -160,6 +190,12 @@ router.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
   let reportConfig = await reportObject.findOne(report_id);
   if (!reportConfig) {
     res.status(404).send(`<b style="color:red">未找到报表:${report_id}</b>`);
+    res.end();
+    return;
+  }
+  let missingRequiredFilters = report.getMissingRequiredFilters(user_filters)
+  if (missingRequiredFilters && missingRequiredFilters.length) {
+    res.status(500).send(`<b style="color:red">缺少过滤条件：${JSON.stringify(missingRequiredFilters)}</b>`);
     res.end();
     return;
   }
