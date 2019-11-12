@@ -1,6 +1,6 @@
 {
   "name": "@steedos/plugin-jsreport",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "description": "Steedos Jsreport报表插件",
   "main": "lib/index",
   "files": [

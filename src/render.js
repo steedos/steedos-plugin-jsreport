@@ -1,6 +1,6 @@
 import plugin, { getJsreport } from './index';
 
-const renderReport = async (report, { recipe = "text", user_filters = [], user_session = {} } = {}) => {
+const renderReport = async (report, { recipe = "text", user_filters = [], user_session = {}, query = {} } = {}) => {
     let htmlContent = report.getHtmlContent();
     let scriptContent = report.getScriptContent();
     let helperContent = report.getHelperContent();
@@ -25,7 +25,8 @@ const renderReport = async (report, { recipe = "text", user_filters = [], user_s
             env: process.env,
             settings: plugin.settings,
             report_config: reportConfig,
-            object_config: objectConfig
+            object_config: objectConfig,
+            query
         }
     });
     return resp;

@@ -149,8 +149,8 @@ export class SteedosReport {
         }
     }
 
-    async render({ recipe = "text", user_filters = [], user_session = {} } = {}) {
-        return await renderReport(this, { recipe, user_filters, user_session });
+    async render({ recipe = "text", user_filters = [], user_session = {}, query = {} } = {}) {
+        return await renderReport(this, { recipe, user_filters, user_session, query });
     }
 }
 

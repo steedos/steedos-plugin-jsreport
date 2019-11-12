@@ -52,9 +52,9 @@ router.get(`${rootUrl}/web`, async (req, res) => {
 
 // 查看yml配置中的报表详细
 router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
-  let user_filters = req.query.user_filters;
+  let { user_filters, ...query } = req.query;
   if (user_filters) {
-    user_filters = eval(decodeURI(user_filters));
+    user_filters = JSON.parse(decodeURI(user_filters));
   }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -69,7 +69,7 @@ router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render({ user_filters, user_session: req.user });
+  let resp = await report.render({ user_filters, user_session: req.user, query});
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -77,7 +77,7 @@ router.get(`${rootUrl}/web/viewer/:report_id`, async (req, res) => {
 
 // 查看db中的报表详细
 router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
-  let user_filters = req.query.user_filters;
+  let { user_filters, ...query } = req.query;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
   }
@@ -96,7 +96,7 @@ router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render({ user_filters, user_session: req.user });
+  let resp = await report.render({ user_filters, user_session: req.user, query });
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -104,9 +104,9 @@ router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
 
 // 导出yml配置中的报表为PDF
 router.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
-  let user_filters = req.query.user_filters;
+  let { user_filters, ...query } = req.query;
   if (user_filters) {
-    user_filters = eval(decodeURI(user_filters));
+    user_filters = JSON.parse(decodeURI(user_filters));
   }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -121,7 +121,7 @@ router.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render({ recipe: 'chrome-pdf', user_filters, user_session: req.user });
+  let resp = await report.render({ recipe: 'chrome-pdf', user_filters, user_session: req.user, query });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -129,7 +129,7 @@ router.get(`${rootUrl}/api/report/:report_id/pdf`, async (req, res) => {
 
 // 导出db中的报表为PDF
 router.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
-  let user_filters = req.query.user_filters;
+  let { user_filters, ...query } = req.query;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
   }
@@ -148,7 +148,7 @@ router.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render({ recipe: 'chrome-pdf', user_filters, user_session: req.user });
+  let resp = await report.render({ recipe: 'chrome-pdf', user_filters, user_session: req.user, query });
   res.setHeader('Content-Type', 'application/pdf; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -156,9 +156,9 @@ router.get(`${rootUrl}/api/report_db/:report_id/pdf`, async (req, res) => {
 
 // 导出yml配置中的报表为Excel
 router.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
-  let user_filters = req.query.user_filters;
+  let { user_filters, ...query } = req.query;
   if (user_filters) {
-    user_filters = eval(decodeURI(user_filters));
+    user_filters = JSON.parse(decodeURI(user_filters));
   }
   let report_id = req.params.report_id;
   let report = getReport(report_id);
@@ -173,7 +173,7 @@ router.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
     res.end();
     return;
   }
-  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters, user_session: req.user });
+  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters, user_session: req.user, query });
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
   res.end();
@@ -181,7 +181,7 @@ router.get(`${rootUrl}/api/report/:report_id/excel`, async (req, res) => {
 
 // 导出db中的报表为Excel
 router.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
-  let user_filters = req.query.user_filters;
+  let { user_filters, ...query } = req.query;
   if (user_filters) {
     user_filters = JSON.parse(decodeURI(user_filters));
   }
@@ -200,7 +200,7 @@ router.get(`${rootUrl}/api/report_db/:report_id/excel`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig)
-  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters, user_session: req.user });
+  let resp = await report.render({ recipe: 'html-to-xlsx', user_filters, user_session: req.user, query });
   res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
   res.send(resp.content);
   res.end();
