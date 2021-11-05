@@ -5,3 +5,4 @@ yarn-error.log
 lib/*
 .migrate
 .history/*
+.DS_Store
