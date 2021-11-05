@@ -92,7 +92,6 @@ export class SteedosReport {
     getMissingRequiredFilters(user_filters) {
         // 检查user_filters中是否有缺失的必要过滤条件
         let requiredFilters = this.getRequiredFilters();
-        console.log("=getMissingRequiredFilters====requiredFilters===",requiredFilters);
         if (requiredFilters.length) {
             if (user_filters && user_filters.length) {
                 if (typeof user_filters[0] === "string"){

@@ -90,7 +90,6 @@ router.get(`${rootUrl}/web/viewer_db/:report_id`, async (req, res) => {
     return;
   }
   let report = new SteedosReport(reportConfig);
-  console.log("===user_filters===", JSON.stringify(user_filters));
   let missingRequiredFilters = report.getMissingRequiredFilters(user_filters)
   if (missingRequiredFilters && missingRequiredFilters.length) {
     res.status(500).send(`<b style="color:red">缺少过滤条件：${JSON.stringify(missingRequiredFilters)}</b>`);

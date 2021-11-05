@@ -51,8 +51,7 @@ var SteedosPlugin = /*#__PURE__*/function () {
 
   (0, _createClass2["default"])(SteedosPlugin, [{
     key: "init",
-    value: function init() {
-      console.log("===init===="); // let reportsDir = "./src/**";
+    value: function init() {// let reportsDir = "./src/**";
       // this.useReportFiles([reportsDir]);
       // initHtmls(this.getReports());
       // initScripts(this.getReports());

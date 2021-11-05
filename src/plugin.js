@@ -23,7 +23,6 @@ export default class SteedosPlugin {
     }
 
     init() {
-        console.log("===init====");
         // let reportsDir = "./src/**";
         // this.useReportFiles([reportsDir]);
         // initHtmls(this.getReports());

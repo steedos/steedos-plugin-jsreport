@@ -199,11 +199,10 @@ router.get("".concat(rootUrl, "/web/viewer_db/:report_id"), /*#__PURE__*/functio
 
           case 11:
             report = new _index.SteedosReport(reportConfig);
-            console.log("===user_filters===", JSON.stringify(user_filters));
             missingRequiredFilters = report.getMissingRequiredFilters(user_filters);
 
             if (!(missingRequiredFilters && missingRequiredFilters.length)) {
-              _context3.next = 18;
+              _context3.next = 17;
               break;
             }
 
@@ -211,21 +210,21 @@ router.get("".concat(rootUrl, "/web/viewer_db/:report_id"), /*#__PURE__*/functio
             res.end();
             return _context3.abrupt("return");
 
-          case 18:
-            _context3.next = 20;
+          case 17:
+            _context3.next = 19;
             return report.render({
               user_filters: user_filters,
               user_session: req.user,
               query: query
             });
 
-          case 20:
+          case 19:
             resp = _context3.sent;
             res.setHeader('Content-Type', 'text/html; charset=utf-8');
             res.send(resp.content);
             res.end();
 
-          case 24:
+          case 23:
           case "end":
             return _context3.stop();
         }
