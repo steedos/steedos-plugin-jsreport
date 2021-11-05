@@ -1,8 +1,16 @@
 {
   "name": "@steedos/plugin-jsreport",
-  "version": "1.10.0",
+  "version": "2.1.38",
   "description": "Steedos Jsreport报表插件",
   "main": "package.service.js",
+  "files": [
+    "lib",
+    "package.json",
+    "README.md",
+    "main",
+    "package.service.js",
+    "jsreport.config.json"
+  ],
   "license": "Apache",
   "private": false,
   "publishConfig": {
