@@ -4,6 +4,7 @@ import { getHelperContent } from './helper';
 import { getObject, getGraphQLSchema } from './utils';
 import { renderReport } from './render';
 import { graphql } from 'graphql';
+
 export class SteedosReport { 
     constructor(config) {
         if (config) {

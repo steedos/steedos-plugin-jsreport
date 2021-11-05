@@ -7,7 +7,7 @@ import { SteedosReport } from './report';
 import { initHtmls } from './html';
 import { initScripts } from './script';
 import { initHelpers } from './helper';
-import { default as routes } from './router';
+// import { default as routes } from './router';
 import jsreportCore from 'jsreport-core';
 
 
@@ -22,17 +22,18 @@ export default class SteedosPlugin {
         }
     }
 
-    init({ app, settings }) {
-        let reportsDir = "./src/**";
-        this.useReportFiles([reportsDir]);
-        initHtmls(this.getReports());
-        initScripts(this.getReports());
-        initHelpers(this.getReports());
+    init() {
+        console.log("===init====");
+        // let reportsDir = "./src/**";
+        // this.useReportFiles([reportsDir]);
+        // initHtmls(this.getReports());
+        // initScripts(this.getReports());
+        // initHelpers(this.getReports());
 
-        app.use(routes);
-        if (settings){
-            this._settings = settings;
-        }
+        // app.use(routes);
+        // if (settings){
+        //     this._settings = settings;
+        // }
     }
 
     get settings() {

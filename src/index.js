@@ -23,6 +23,6 @@ export async function getJsreport() {
 }
 
 export { SteedosReport } from './report';
-export { default as routes } from './router';
+// export { default as routes } from './router';
 export * from './html';
 export default plugin;
