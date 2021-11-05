@@ -27,6 +27,24 @@ var _render2 = require("./render");
 
 var _graphql = require("graphql");
 
+/**
+ * 检查filters中是否配置了key字段值，且值不为空
+ * @param {*} filters 要检查的过滤条件
+ * @param {*} key 要确认是否包含的字段名
+ * @returns 
+ */
+var check = function check(filters, key) {
+  if (filters instanceof Array) {
+    if (filters[0] === key && filters.length === 3) {
+      return filters[2] !== undefined && filters[2] !== null;
+    } else {
+      return !!filters.find(function (item) {
+        return check(item, key);
+      });
+    }
+  }
+};
+
 var SteedosReport = /*#__PURE__*/function () {
   function SteedosReport(config) {
     (0, _classCallCheck2["default"])(this, SteedosReport);
@@ -122,7 +140,7 @@ var SteedosReport = /*#__PURE__*/function () {
                 return userFilter.field === item.field && userFilter.value !== undefined && userFilter.value !== null;
               } else {
                 // 数组格式
-                return userFilter[0] === item.field && userFilter[2] !== undefined && userFilter[2] !== null;
+                return check(userFilter, item.field);
               }
             });
           });

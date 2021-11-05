@@ -5,6 +5,23 @@ import { getObject, getGraphQLSchema } from './utils';
 import { renderReport } from './render';
 import { graphql } from 'graphql';
 
+/**
+ * 检查filters中是否配置了key字段值，且值不为空
+ * @param {*} filters 要检查的过滤条件
+ * @param {*} key 要确认是否包含的字段名
+ * @returns 
+ */
+var check = (filters, key) => {
+    if (filters instanceof Array) {
+        if (filters[0] === key && filters.length === 3) {
+            return filters[2] !== undefined && filters[2] !== null
+        } else {
+            return !!filters.find((item) => {
+                return check(item, key);
+            });
+        }
+    }
+}
 export class SteedosReport { 
     constructor(config) {
         if (config) {
@@ -75,6 +92,7 @@ export class SteedosReport {
     getMissingRequiredFilters(user_filters) {
         // 检查user_filters中是否有缺失的必要过滤条件
         let requiredFilters = this.getRequiredFilters();
+        console.log("=getMissingRequiredFilters====requiredFilters===",requiredFilters);
         if (requiredFilters.length) {
             if (user_filters && user_filters.length) {
                 if (typeof user_filters[0] === "string"){
@@ -89,7 +107,7 @@ export class SteedosReport {
                         }
                         else{
                             // 数组格式
-                            return userFilter[0] === item.field && userFilter[2] !== undefined && userFilter[2] !== null
+                            return check(userFilter, item.field);
                         }
                     })
                 });
