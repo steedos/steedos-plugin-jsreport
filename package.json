@@ -29,7 +29,7 @@
   "scripts": {
     "debug": "npm run compile && nodemon start.js",
     "start": "npm run compile && node start.js",
-    "compile": "babel -d main/default src/ && mv main/default/router.js main/default/jsreport.router.js && cp -r src/static lib",
+    "compile": "babel -d main/default src/ && mv main/default/router.js main/default/jsreport.router.js && mkdir -p lib && cp -r src/static lib",
     "prepare": "npm run compile",
     "clear": "rd /s /q node_modules\\@steedos\\auth\\node_modules\\@steedos node_modules\\@steedos\\core\\node_modules\\@steedos node_modules\\@steedos\\objectql\\node_modules\\@steedos node_modules\\@steedos\\plugin-jsreport\\node_modules\\@steedos"
   },
