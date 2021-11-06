@@ -45,6 +45,14 @@ export default class SteedosPlugin {
         }
         this._jsreport = jsreportCore({
             loadConfig: true
+        },{
+            "allowLocalFilesAccess": true,
+            "chrome": {
+                "launchOptions": {
+                "args": ["--no-sandbox"]
+                },
+                "timeout": 40000
+            }    
         });
         await this._jsreport.init().catch((e) => {
             this._jsreport = null;

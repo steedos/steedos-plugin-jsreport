@@ -86,6 +86,14 @@ var SteedosPlugin = /*#__PURE__*/function () {
               case 2:
                 this._jsreport = (0, _jsreportCore["default"])({
                   loadConfig: true
+                }, {
+                  "allowLocalFilesAccess": true,
+                  "chrome": {
+                    "launchOptions": {
+                      "args": ["--no-sandbox"]
+                    },
+                    "timeout": 40000
+                  }
                 });
                 _context.next = 5;
                 return this._jsreport.init()["catch"](function (e) {
